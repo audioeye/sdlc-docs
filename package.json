@@ -1,0 +1,19 @@
+{
+  "name": "sdlc-docs",
+  "version": "0.0.1",
+  "description": "Developer documentation for the AudioEye Testing SDK",
+  "main": "index.js",
+  "authors": {
+    "name": "Robert Higdon",
+    "email": "rhigdon@audioeye.com"
+  },
+  "repository": "/sdlc-docs",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
