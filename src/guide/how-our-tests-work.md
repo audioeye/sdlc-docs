@@ -5,7 +5,7 @@ For each test run, you will be informed if your site passed or failed for each i
 - A **“pass”** is defined as code DID match the expected pattern/assertion defined in the test.
 - A **“failure”** is defined as code DID NOT match the expected pattern/assertion defined in the test.
 
-```
+```bash
 ::: START AudioEye SDK CLI :::
 
 Scanning HTML from STDIN
@@ -26,7 +26,7 @@ When a failure is returned, we will provide you the following information:
 - **Fix advice (plain text)** - Explanation of the issue discovered.
 - **Fix (code snippet)** - Code example on how to fix the issue.
 
-```
+```bash
 ::: START AudioEye SDK CLI :::
 
 Scanning HTML from STDIN

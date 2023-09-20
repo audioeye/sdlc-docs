@@ -33,7 +33,7 @@ module.exports = {
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
-    logo: 'audioeye_logo.svg',
+    logo: '/audioeye_logo.svg',
     search: false,
     sidebar: {
       '/guide/': [

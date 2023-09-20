@@ -1,7 +1,10 @@
 # CLI
+
 ## Commands
+
 ### Scanning a page
-```
+
+```bash
 aetest scan < example_inputs.document.html
 ```
 | Command | Description |
@@ -10,7 +13,8 @@ aetest scan < example_inputs.document.html
 | -p <br /> &#x2011;&#x2011;print&#x2011;test&#x2011;list  | This prints a list of tests that will be run |
 
 ### Output
-```
+
+```bash
 ::: START AudioEye SDK CLI :::
 
 Scanning HTML from STDIN
