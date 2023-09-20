@@ -34,7 +34,6 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     logo: '/audioeye_logo.svg',
-    search: false,
     sidebar: {
       '/guide/': [
         {
@@ -57,7 +56,6 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
+    '@vuepress/search',
   ]
 }
