@@ -27,11 +27,13 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    layout: 'Guide',
     repo: '',
     editLinks: false,
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
+    logo: 'audioeye_logo.svg',
     sidebar: {
       '/guide/': [
         {
@@ -40,9 +42,10 @@ module.exports = {
           children: [
             '',
             'how-our-tests-work',
-            'how-to-test',
-            'how-to-run-locally',
+            'cli',
+            'jest',
             'writing-custom-tests',
+            'building-publishing',
           ]
         }
       ],
