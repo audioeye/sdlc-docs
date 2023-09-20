@@ -22,7 +22,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,15 +45,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.SERVICES_TOKEN }}
 
       - name: Build
-        run: npx run build
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
