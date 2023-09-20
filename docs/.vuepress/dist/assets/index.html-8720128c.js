@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-8daa1a0e","path":"/","title":"About the Testing SDK","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"Our Approach to Testing","slug":"our-approach-to-testing","link":"#our-approach-to-testing","children":[]}],"git":{},"filePathRelative":"README.md"}');export{t as data};
