@@ -27,7 +27,6 @@ export default defineUserConfig({
             'cli',
             'puppeteer',
             'how-our-tests-work',
-            'writing-custom-tests',
             'building-publishing',
           ]
         }
