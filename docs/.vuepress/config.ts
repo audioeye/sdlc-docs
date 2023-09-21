@@ -22,10 +22,11 @@ export default defineUserConfig({
         {
           text: 'Guide',
           children: [
-            'how-our-tests-work',
             'get-started',
-            'cli',
             'jest',
+            'cli',
+            'puppeteer',
+            'how-our-tests-work',
             'writing-custom-tests',
             'building-publishing',
           ]
