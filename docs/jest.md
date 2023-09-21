@@ -1,4 +1,4 @@
-# Jest Library
+# Testing With Jest
 
 The AudioEye Testing SDK Jest Library gives you the ability to write Jest tests to  test components of your project.
 
