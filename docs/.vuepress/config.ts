@@ -10,7 +10,7 @@ export default defineUserConfig({
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
   theme: defaultTheme({
-    home: '/guide/',
+    home: '/',
     editLink: false,
     docsDir: '',
     editLinkText: '',
