@@ -1,5 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from '@vuepress/theme-default'
+import { searchPlugin } from '@vuepress/plugin-search'
 
 export default defineUserConfig({
   title: 'AudioEye Testing SDK',
@@ -15,12 +16,12 @@ export default defineUserConfig({
     editLinkText: '',
     lastUpdated: false,
     logo: '/audioeye_logo.svg',
+    contributors: false,
     sidebar: {
       '/': [
         {
           text: 'Guide',
           children: [
-
             'how-our-tests-work',
             'cli',
             'jest',
@@ -29,6 +30,10 @@ export default defineUserConfig({
           ]
         }
       ],
-    }
+    },
+
   }),
+  plugins: [
+    searchPlugin({}),
+  ],
 })
