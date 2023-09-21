@@ -1,9 +1,11 @@
 # About the Testing SDK
 
-AudioEye’s Testing SDK helps engineers test code for accessibility issues early in the development process and reduces the chances for these issues to make it to production.
+AudioEye’s Testing SDK helps web developers and front-end engineers test code for accessibility issues in their local, staging, or CI/CD environments. Checking for issues early in the development process makes it easier to fix those problems at the source and reduces the volume of issues that make it into your production environments.
 
 ## Our Approach to Testing
 
-Our testing suite will analyze your site and break down results based on any issues we discover and will also link the related WCAG guideline. When we run a test, we are confirming that the specific results our tests expect is present in your site or code.
+This software development kit (SDK) lets you use AudioEye's automated testing suite to analyze your site and get details of the issues discovered. 
 
-Our tests look for success criteria as defined in the WCAG guidelines. When your code passes a test, it doesn’t mean that a WCAG guideline is passed, but that expected behavior we are looking for in that specific test is present on your site.
+Our tests (rules) are based on specific results we expect are present in your site or code, as defined by WCAG guidelines. WCAG guidelines are complex and comprised of multiple criteria, some of which cannot be measured accurately by automated testing. 
+
+As a result, when your code passes a test, it doesn’t mean the WCAG guideline itself is passed, but rather the details or expected behavior we are looking for in that test is present.
