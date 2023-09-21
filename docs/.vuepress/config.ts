@@ -20,7 +20,7 @@ export default defineUserConfig({
         {
           text: 'Guide',
           children: [
-            '',
+
             'how-our-tests-work',
             'cli',
             'jest',
