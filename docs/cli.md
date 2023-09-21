@@ -1,4 +1,4 @@
-# CLI
+# Testing with the CLI
 
 ## Commands
 
