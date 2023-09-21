@@ -1,6 +1,6 @@
 # Jest Library
 
-The AudioEye Testing SDK Jest Library gives you the ability to write Jest tests to  test components of your project.
+The AudioEye Testing SDK Jest Library gives you the ability to write Jest tests to test components of your project.
 
 ## Pre-requisites
 xxx
@@ -13,7 +13,7 @@ You can install the Jest package locally (as a developer only dependency) in you
 npm install -D @audioeye/testing-sdk-jest
 ```
 
-Set up the matchers in your [Jest configuration file](https://jestjs.io/docs/configuration#setupfilesafterenv-array).
+Set up the test matchers in your [Jest configuration file](https://jestjs.io/docs/configuration#setupfilesafterenv-array).
 
 ```javascript
 const config = {
@@ -30,7 +30,7 @@ import '@audioeye/testing-sdk-jest';
 ```
 
 ## Usage
-Import the SDK into your test file, render your component, and then use the matchers to test for accessibility issues.
+Import the SDK into your test file, render your component, and then use the [available tests](#available-tests) to test for accessibility issues.
 
 Here's an example using React components and the [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
 
