@@ -1,1 +1,0 @@
-const i=JSON.parse('{"key":"v-082d6726","path":"/building-publishing.html","title":"Building Installable Packages","lang":"en-US","frontmatter":{},"headers":[{"level":2,"title":"Publishing Packages","slug":"publishing-packages","link":"#publishing-packages","children":[]}],"git":{},"filePathRelative":"building-publishing.md"}');export{i as data};
