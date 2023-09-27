@@ -30,7 +30,6 @@ export default defineUserConfig({
             'get-started',
             'jest',
             'cli',
-            'puppeteer',
             'how-our-tests-work',
             'building-publishing',
           ]
