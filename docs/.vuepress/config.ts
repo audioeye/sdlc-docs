@@ -1,7 +1,8 @@
-import { defineUserConfig } from 'vuepress'
+// import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from '@vuepress/theme-default'
 
-export default defineUserConfig({
+
+export default {
   title: 'AudioEye Testing SDK',
   head: [
     ['meta', { name: 'og:title', content: 'AudioEye Testing SDK Docs' }],
@@ -14,6 +15,7 @@ export default defineUserConfig({
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: 'https://audioeye.github.io/sdlc-docs/audioeye_logo.svg' }],
   ],
+
   theme: defaultTheme({
     home: '/',
     editLink: false,
@@ -36,6 +38,5 @@ export default defineUserConfig({
         }
       ],
     },
-
   }),
-})
+}

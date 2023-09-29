@@ -11,7 +11,8 @@ You can install the CLI as a developer only dependency in your project.
 npm install -D @audioeye/testing-sdk-cli
 ```
 ## Options
-```bash
+
+```
 Usage: aetest [options] [command]
 
 CLI for AudioEye Testing SDK
