@@ -18,7 +18,7 @@ Set up the test matchers in your [Jest configuration file](https://jestjs.io/doc
 <CodeGroup>
   <CodeGroupItem title="Javascript" active>
 
-```js
+```javascript
 const config = {
   setupFilesAfterEnv: ['@audioeye/testing-sdk-jest'],
 };
@@ -29,11 +29,14 @@ module.exports = config;
 
   <CodeGroupItem title="Typescript">
 
-```ts
-const config = {
+```typescript
+import type {Config} from 'jest';
+
+const config: Config = {
   setupFilesAfterEnv: ['@audioeye/testing-sdk-jest'],
 };
-module.exports = config;
+
+export default config;
 ```
 
   </CodeGroupItem>
@@ -101,63 +104,20 @@ describe("Image", () => {
 ### toFindAccessibilityIssues
 Used to identify if accessibility issues are found.
 
-<CodeGroup>
-  <CodeGroupItem title="Javascript" active>
-
 ```javascript
 it('should not find accessibility issues', async () => {
   await expect(htmlWithAccessibleContent).not.toFindAccessibilityIssues();
 });
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
-
 ### toOnlyHaveTheseAccessibilityIssues
 Use to define which accessibility issues are expected. Pass a comma separated list of expected test names.
 
-<CodeGroup>
-  <CodeGroupItem title="Javascript" active>
-
 ```javascript
-it('should find an imgTextAlt issue', async () => {
-  await expect(htmlWithImgTextAltIssue).toOnlyHaveTheseAccessibilityIssues('imgTextAlt');
+it('should only find an imgTextAlt and htmlSkipToMainNotFound issues', async () => {
+  await expect(htmlWithAFewIssues).toOnlyHaveTheseAccessibilityIssues(
+    'imgTextAlt',
+    'htmlSkipToMainNotFound'
+  );
 });
 ```
-
-  </CodeGroupItem>
-  <CodeGroupItem title="Typescript" >
-
-```typsescript
-it('should find an imgTextAlt issue', async () => {
-  await expect(htmlWithImgTextAltIssue).toOnlyHaveTheseAccessibilityIssues('imgTextAlt');
-});
-```
-
-  </CodeGroupItem>
-
-</CodeGroup>
-
-### toHaveAccessibilityIssueCount
-Verifying that a specific number of Accessibility Issues is returned.
-
-<CodeGroup>
-  <CodeGroupItem title="Javascript" active>
-
-```javascript
-it('passes when expected issue count is 0 and no issues are found', async () => {
-  await expect(rawElementWithNoAccessibilityIssues).toHaveAccessibilityIssueCount(0);
-});
-```
-
-  </CodeGroupItem>
-  <CodeGroupItem title="Typescript">
-
-```typescript
-it('passes when expected issue count is 0 and no issues are found', async () => {
-  await expect(rawElementWithNoAccessibilityIssues).toHaveAccessibilityIssueCount(0);
-});
-```
-
-  </CodeGroupItem>
-</CodeGroup>

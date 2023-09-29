@@ -1,6 +1,5 @@
-// import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from '@vuepress/theme-default'
-
+import { shikiPlugin } from '@vuepress/plugin-shiki'
 
 export default {
   title: 'AudioEye Testing SDK',
@@ -33,10 +32,14 @@ export default {
             'jest',
             'cli',
             'how-our-tests-work',
-            'building-publishing',
           ]
         }
       ],
     },
   }),
+  plugins: [
+    shikiPlugin({
+      theme: 'rose-pine-moon',
+    }),
+  ],
 }

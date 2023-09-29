@@ -34,7 +34,7 @@ npx aetest scan < example_inputs/component.html -c
 | :------ | :--- |
 | -c<br /> &#x2011;&#x2011;component | Run in component mode (create a document and inject the HTML) |
 | -p<br /> &#x2011;&#x2011;print&#x2011;test&#x2011;list  | This prints a list of tests that will be run |
-| -d<br /> &#x2011;&#x2011;debug | Show summary of runtime errors plus stack trace for each error |
+| -d<br /> &#x2011;&#x2011;debug | Internal Use only (Don't build off of this!) |
 | -j<br /> &#x2011;&#x2011;json | Output results in JSON format |
 | -o<br /> &#x2011;&#x2011;output <html_filename> | Define the filename for test results HTML output file |
 | -h<br /> &#x2011;&#x2011;help | Display help for a command |
