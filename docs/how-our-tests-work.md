@@ -2,7 +2,6 @@
 
 NOTE: Update this section to cover the following
 - Summary output (count + result codes)
-- Describe function (more details for each result code)
 - Per-issue detail output in JSON format (can convert to csv)
 
 For each test run, you will be informed if your site passed or failed for each issue that we looked for in that specific test suite.
@@ -35,3 +34,22 @@ When a failure is returned, we will provide you the following information:
 You can easily find details about each of these failure details in the HTML output file. Here is an example result:
 
 ![Example table output](/html-output-table.png)
+
+## Describing a rule
+If you need more details about a specific rule, you can use the `describe` command to get more information.
+
+```bash
+npx aetest describe imgTextAlt
+```
+
+### Describe Output
+
+```bash
+{
+  code: 'imgTextAlt',
+  fullName: 'Providing a Short Text Alternative for Images',
+  description: '<p>All <code>img</code> elements must have an "alt" attribute to identify and describe visual information conveyed. Decorative or non-informational images may have an empty "alt" so that Screen Readers can skip or ignore them, but the attribute must still be present.</p><h4>Sample Code</h4><pre>&lt;img src="picture.jpg" alt="A meaningful alt tag for this image."&gt;</pre>',
+  wcagSuccessCriteriaNumber: '1.1.1',
+  wcagSuccessCriteriaName: 'Non-Text Content'
+}
+```
