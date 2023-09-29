@@ -1,11 +1,23 @@
 # Testing with the CLI
 
+**TODOs**
+- Info on puppeteer in CLI pre-requisites
+
+## Pre-requisites
+Visit the [Getting Started](get-started.md) page to learn how to setup the CLI in your project.
 
 ## Scanning
 
+### A URL
+```bash
+npx aetest scan https://www.audioeye.com
+```
+
+### A Local Document
 ```bash
 npx aetest scan < example_inputs/document.html
 ```
+
 By default, the CLI will expect a document to be a complete HTML document. If you are scanning a component, you can use the `-c` flag to run in component mode.
 
 ### Scan Output

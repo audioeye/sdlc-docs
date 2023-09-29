@@ -1,34 +1,25 @@
 # Get Started
 
-Some words about
+**TODOs**
 - How to get the entitlement token
 - How to download & install the NPM package from the repository
+- How to add `.npmrc` file to a project
 
-## CLI Installation
+## Available Packages
+
+- [**CLI**](#cli) - @audioeye/testing-sdk-cli
+- [**Jest**](#jest) - @audioeye/testing-sdk-jest
+
+## CLI
+
+### NPM Installation
 You can install the CLI as a developer only dependency in your project.
 
 ```bash
 npm install -D @audioeye/testing-sdk-cli
 ```
-## Options
 
-```
-Usage: aetest [options] [command]
-
-CLI for AudioEye Testing SDK
-
-Options:
-  -V, --version         output the version number
-  -h, --help            display help for command
-
-Commands:
-  scan [options] [url]  Perform an accessibility scan on a URL or on the provided raw html on stdin
-  jest                  Perform an accessibility scan in Jest mode with custom JSON output
-  describe [rule]       Output available information about the rules in the testing framework and their usage in the testing sdk cli
-  help [command]        display help for command
-```
-
-## Installation in Docker
+### Docker Installation
 
 In order to run our CLI in Docker, you must set up your project to support Puppeteer. This Dockerfile works for ubuntu containers.
 
@@ -47,3 +38,33 @@ RUN apt-get update \
 You must also run `docker run` with the flag `--cap-add=SYS_ADMIN`.
 
 You can find full details on how to set up Puppeteer in Docker [here](https://pptr.dev/troubleshooting#running-puppeteer-in-docker).
+
+### Using the CLI
+
+```bash
+npx aetest [command] [options]
+```
+
+#### Available Commands
+| Command | Description |
+| :------ | :--- |
+| scan [options] [url] | Perform an accessibility scan on a URL or on the provided raw html on stdin |
+| jest | Perform an accessibility scan in Jest mode with custom JSON output |
+| describe [rule] | Output available information about the rules in the testing framework and their usage in the testing sdk cli |
+| help [command] | display help for command |
+
+#### Available Options
+| Option | Description |
+| :------ | :--- |
+| -V<br /> &#x2011;&#x2011;version | Output the current aetest version number |
+| -h<br /> &#x2011;&#x2011;help | Display help for a given command |
+
+## Jest
+
+### NPM Installation
+
+You can install the Jest package locally (as a developer only dependency) in your project. Currently this will also install the cli as a dependency
+
+```bash
+npm install -D @audioeye/testing-sdk-jest
+```

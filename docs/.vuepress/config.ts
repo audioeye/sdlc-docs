@@ -36,6 +36,7 @@ export default {
         }
       ],
     },
+    sidebarDepth: 1,
   }),
   plugins: [
     shikiPlugin({

@@ -1,13 +1,11 @@
-# Test Outputs
+# Issue Detail Output
 
-NOTE: Update this section to cover the following
-- Summary output (count + result codes)
-- Per-issue detail output in JSON format (can convert to csv)
+**TODOs**
+- Add a setup paragraph here
+- Fix describe function info (or details around it?)
+- Update description of values returned (columns in chart) + what they mean -> Anna has these from Victor
 
-For each test run, you will be informed if your site passed or failed for each issue that we looked for in that specific test suite.
-
-- A **“pass”** is defined as code DID match the expected pattern/assertion defined in the test.
-- A **“failure”** is defined as code DID NOT match the expected pattern/assertion defined in the test.
+## HTML Output
 
 ```bash
 ::: START AudioEye SDK CLI :::
@@ -20,20 +18,39 @@ Full Test Results were output to /example/folder/testing-sdk-output.html
 
 ::: END AudioEye SDK CLI :::
 ```
-
-When a failure is returned, we will provide you the following information:
-- **Unique issue identifier** – Can be used to track the issue in project management tools.
-- **Issue Code** – The name of the rule that discovered the issue.
-- **Issue name** – Description of the issue.
-- **WCAG success criterion (name + number)** – What WCAG criteria was being tested
-- **Description** - Explanation of the WCAG criterion with example code on how to properly implement.
-- **Source** – Where the issue occurred.
-<!-- - **Fix advice (plain text)** - Explanation of the issue discovered.
-- **Fix (code snippet)** - Code example on how to fix the issue. -->
-
 You can easily find details about each of these failure details in the HTML output file. Here is an example result:
 
 ![Example table output](/html-output-table.png)
+
+When a failure is returned, we will provide you the following information:
+
+- **Unique issue identifier** – Can be used to track the issue in project management tools.
+- **Rule Code and Result Code** – The name of the result code that discovered the issue and it's parent rule.
+- **Rule Description** – A description of the issue.
+- **WCAG success criterion (number + name)** – What WCAG criteria was being tested
+- **Result Description** - Explanation of the WCAG criterion with example code on how to properly implement.
+- **Fix advice (plain text)** - Explanation of the issue discovered.
+- **Fix (code snippet)** - Code example on how to fix the issue.
+- **Source** – Where the issue occurred.
+
+
+
+## JSON Output
+
+If you're prefer to work with JSON, you can use the `--json` flag to output the results in JSON format.
+
+```bash
+npx aetest scan < example_inputs/component.html -c --json
+```
+
+```bash
+::: START AudioEye SDK CLI :::
+
+Scanning HTML from STDIN
+{"results":[{"ruleCode":"imgTextAlt","result":{"result":"fail","resultCode":"imgTextAltNotFound"},"ruleResultData":{"title":"Image isn't labelled or marked as decorative","description":"Every image needs to inform assistive tools how to handle it. If it's a meaningful image, it needs to have a text description. If it's decorative or not informative, it needs to be marked so assistive tools can skip over it. If an image doesn't have either, it's not clear what the image is for or how to handle it. Assistive tools may skip over the image or give it a generic label that people won't understand.","sourceFixGuidance":"If the image is meaningful, add a descriptive label to the linked image. The label should describe the purpose of the image and any important visual details.\n\nFor images using the `<img>` element, use the `alt` attribute:\n\n```\n<a href=\"contact.html\">\n  <img src=\"contact.png\" alt=\"Contact us\">\n</a>\n```\nFor images using the `<svg>` element, use the `aria-label` attribute:\n\n```\n<a href=\"contact.html\">\n  <svg aria-label=\"Contact us\">…</svg>\n</a>\n```\n\nIf the image is not informative or redundant with adjacent text, mark the image as decorative.\n\nFor images using the `<img>` element, use `alt=\"\"`:\n\n```\n<a href=\"contact.html\">\n  <img src=\"contact.png\" alt=\"\">\n  Contact us\n</a>\n```\nFor images using the `<svg>` element, use `aria-hidden=\"true\"`:\n\n```\n<a href=\"contact.html\">\n  <svg aria-hidden=\"true\">…</svg>\n  Contact us\n</a>\n```","classification":"FAILED_HIGH_RISK","userImpactScore":3,"toolCoverage":false,"fixAtSource":false,"primaryBeneficiary":"Visual","secondaryBeneficiary":"Cognitive"},"source":"<img src=\"../assets/velvet.jpg\">"},{"ruleCode":"imgTextAlt","result":{"result":"fail","resultCode":"imgTextAltNotFound"},"ruleResultData":{"title":"Image isn't labelled or marked as decorative","description":"Every image needs to inform assistive tools how to handle it. If it's a meaningful image, it needs to have a text description. If it's decorative or not informative, it needs to be marked so assistive tools can skip over it. If an image doesn't have either, it's not clear what the image is for or how to handle it. Assistive tools may skip over the image or give it a generic label that people won't understand.","sourceFixGuidance":"If the image is meaningful, add a descriptive label to the linked image. The label should describe the purpose of the image and any important visual details.\n\nFor images using the `<img>` element, use the `alt` attribute:\n\n```\n<a href=\"contact.html\">\n  <img src=\"contact.png\" alt=\"Contact us\">\n</a>\n```\nFor images using the `<svg>` element, use the `aria-label` attribute:\n\n```\n<a href=\"contact.html\">\n  <svg aria-label=\"Contact us\">…</svg>\n</a>\n```\n\nIf the image is not informative or redundant with adjacent text, mark the image as decorative.\n\nFor images using the `<img>` element, use `alt=\"\"`:\n\n```\n<a href=\"contact.html\">\n  <img src=\"contact.png\" alt=\"\">\n  Contact us\n</a>\n```\nFor images using the `<svg>` element, use `aria-hidden=\"true\"`:\n\n```\n<a href=\"contact.html\">\n  <svg aria-hidden=\"true\">…</svg>\n  Contact us\n</a>\n```","classification":"FAILED_HIGH_RISK","userImpactScore":3,"toolCoverage":false,"fixAtSource":false,"primaryBeneficiary":"Visual","secondaryBeneficiary":"Cognitive"},"source":"<img src=\"../assets/stitching.jpg\">"},{"ruleCode":"imgTextAlt","result":{"result":"fail","resultCode":"imgTextAltNotFound"},"ruleResultData":{"title":"Image isn't labelled or marked as decorative","description":"Every image needs to inform assistive tools how to handle it. If it's a meaningful image, it needs to have a text description. If it's decorative or not informative, it needs to be marked so assistive tools can skip over it. If an image doesn't have either, it's not clear what the image is for or how to handle it. Assistive tools may skip over the image or give it a generic label that people won't understand.","sourceFixGuidance":"If the image is meaningful, add a descriptive label to the linked image. The label should describe the purpose of the image and any important visual details.\n\nFor images using the `<img>` element, use the `alt` attribute:\n\n```\n<a href=\"contact.html\">\n  <img src=\"contact.png\" alt=\"Contact us\">\n</a>\n```\nFor images using the `<svg>` element, use the `aria-label` attribute:\n\n```\n<a href=\"contact.html\">\n  <svg aria-label=\"Contact us\">…</svg>\n</a>\n```\n\nIf the image is not informative or redundant with adjacent text, mark the image as decorative.\n\nFor images using the `<img>` element, use `alt=\"\"`:\n\n```\n<a href=\"contact.html\">\n  <img src=\"contact.png\" alt=\"\">\n  Contact us\n</a>\n```\nFor images using the `<svg>` element, use `aria-hidden=\"true\"`:\n\n```\n<a href=\"contact.html\">\n  <svg aria-hidden=\"true\">…</svg>\n  Contact us\n</a>\n```","classification":"FAILED_HIGH_RISK","userImpactScore":3,"toolCoverage":false,"fixAtSource":false,"primaryBeneficiary":"Visual","secondaryBeneficiary":"Cognitive"},"source":"<img src=\"../assets/storage.jpg\">"}]}
+::: END AudioEye SDK CLI :::
+```
+
 
 ## Describing a rule
 If you need more details about a specific rule, you can use the `describe` command to get more information.
