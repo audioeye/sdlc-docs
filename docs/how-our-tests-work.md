@@ -24,14 +24,15 @@ You can easily find details about each of these failure details in the HTML outp
 
 When a failure is returned, we will provide you the following information:
 
-- **Unique issue identifier** – Can be used to track the issue in project management tools.
-- **Rule Code and Result Code** – The name of the result code that discovered the issue and it's parent rule.
-- **Rule Description** – A description of the issue.
-- **WCAG success criterion (number + name)** – What WCAG criteria was being tested
-- **Result Description** - Explanation of the WCAG criterion with example code on how to properly implement.
-- **Fix advice (plain text)** - Explanation of the issue discovered.
-- **Fix (code snippet)** - Code example on how to fix the issue.
-- **Source** – Where the issue occurred.
+- **Unique issue identifier** – A way to track each individual issue in project management tools.
+- **Rule Code and Result Code** – The result code indicates the specific issue was discovered by a parent rule (test). A rule can detect more than one issue (result). 
+- **Rule Name** – The name of the rule (test) that was run.
+- **Rule Description** – A description of what the rule (test) checks for.
+- **WCAG success criterion (number + name)** – The corresponding WCAG criteria for each rule. 
+- **Result Description** - A description of the issue discovered, based on how and why the rule (test) failed.
+- **Fix advice (plain text)** - Explanation of how to fix the issue.
+- **Fix (code snippet)** - Generic code example of how to fix the issue.
+- **Source** – Where in source code the issue occurred.
 
 
 
