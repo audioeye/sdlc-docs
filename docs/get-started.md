@@ -1,14 +1,18 @@
 # Get Started
 
-**TODOs**
-- How to get the entitlement token
-- How to download & install the NPM package from the repository
-- How to add `.npmrc` file to a project
-
 ## Available Packages
 
 - [**CLI**](#cli) - @audioeye/testing-sdk-cli
 - [**Jest**](#jest) - @audioeye/testing-sdk-jest
+
+## Pre-Requisites
+AudioEye is hosting this SDK in Cloudsmith for secure distribution. In order to pull down dependencies, make sure you have an `.npmrc` file in the root your project with the following contents:
+
+```bash
+@audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
+//npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=<ENTITLEMENT_TOKEN>
+```
+**Note:** Beta users will have this pre-generated with the `ENTITLEMENT_TOKEN` filled out for them.
 
 ## CLI
 
@@ -49,9 +53,8 @@ npx aetest [command] [options]
 | Command | Description |
 | :------ | :--- |
 | scan [options] [url] | Perform an accessibility scan on a URL or on the provided raw html on stdin |
-| jest | Perform an accessibility scan in Jest mode with custom JSON output |
 | describe [rule] | Output available information about the rules in the testing framework and their usage in the testing sdk cli |
-| help [command] | display help for command |
+| help [command] | Display help for a given command |
 
 #### Available Options
 | Option | Description |

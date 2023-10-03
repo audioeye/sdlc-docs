@@ -1,12 +1,11 @@
 # Testing With Jest
 
-**TODOs**
-- Details on Jest config needing to indicate browser testing (JSDOM)
-
 The AudioEye Testing SDK Jest Library gives you the ability to write Jest tests to test components of your project.
 
 ## Pre-requisites
 Visit the [Getting Started](get-started.md) page to learn how to setup Jest in your project.
+
+**Note:** This guide's Jest test examples assume you're working in a browser environment. With Jest 27+, you will need to configure Jest to run with JSDOM. You can find more information on how to do that [here](https://jestjs.io/docs/configuration#testenvironment-string).
 
 ## Installing the library
 
