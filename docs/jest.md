@@ -73,14 +73,18 @@ describe("Image", () => {
       expect(innerHTML).toMatchSnapshot();
     });
 
-    it("should have accessibility issues", async () => {
+    it("can test with render result and it should find accessibility issues", async () => {
       await expect(render(<Image />)).toFindAccessibilityIssues();
     });
 
-    it("should have an imgTextAlt issue", async () => {
-      await expect(render(<Image />)).toOnlyHaveTheseAccessibilityIssues(
-        "imgTextAlt"
-      );
+    it("can test with container and it should have an imgTextAlt issue", async () => {
+      const { container } = render(<Image />);
+      await expect(container).toOnlyHaveTheseAccessibilityIssues("imgTextAlt");
+    });
+
+    it("can test with fragment and it should match the snapshot", async () => {
+      const { asFragment } = render(<Image />);
+      await expect(asFragment()).toMatchAccessibilityReportSnapshot();
     });
   });
 
