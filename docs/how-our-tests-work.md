@@ -3,7 +3,6 @@
 **TODOs**
 - Add a setup paragraph here
 - Fix describe function info (or details around it?)
-- Update description of values returned (columns in chart) + what they mean -> Anna has these from Victor
 
 ## HTML Output
 
