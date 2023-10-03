@@ -48,7 +48,6 @@ npx aetest scan < example_inputs/component.html -c
 | -p<br /> &#x2011;&#x2011;print&#x2011;test&#x2011;list  | This prints a list of tests that will be run |
 | -d<br /> &#x2011;&#x2011;debug | Internal Use only (Don't build off of this!) |
 | -t<br /> &#x2011;&#x2011;output&#x2011;type <file_type> | Define the file type of the output (html or json) (default: "html") |
-| -j<br /> &#x2011;&#x2011;json | Output results in JSON format |
 | -o<br /> &#x2011;&#x2011;output <html_filename> | Define the filename for test results HTML output file |
 | -h<br /> &#x2011;&#x2011;help | Display help for a command |
 
