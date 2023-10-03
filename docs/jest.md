@@ -3,9 +3,10 @@
 The AudioEye Testing SDK Jest Library gives you the ability to write Jest tests to test components of your project.
 
 ## Pre-requisites
+
 Visit the [Getting Started](get-started.md) page to learn how to setup Jest in your project.
 
-**Note:** This guide's Jest test examples assume you're working in a browser environment. With Jest 27+, you will need to configure Jest to run with JSDOM. You can find more information on how to do that [here](https://jestjs.io/docs/configuration#testenvironment-string).
+**Note:** This guide's Jest test examples use [`@testing-library/react`](https://www.npmjs.com/package/@testing-library/react). Please follow their setup instructions, particularly the differences between Jest versions. [Jest 28](https://jestjs.io/blog/2022/04/25/jest-28#breaking-changes) introduced breaking changes to the testing environment that need to be handled correctly. You can find more information on how to do that [here](https://jestjs.io/docs/configuration#testenvironment-string).
 
 ## Installing the library
 
@@ -22,7 +23,7 @@ Set up the test matchers in your [Jest configuration file](https://jestjs.io/doc
 
 ```javascript
 const config = {
-  setupFilesAfterEnv: ['@audioeye/testing-sdk-jest'],
+  setupFilesAfterEnv: ["@audioeye/testing-sdk-jest"],
 };
 module.exports = config;
 ```
@@ -32,10 +33,10 @@ module.exports = config;
   <CodeGroupItem title="Typescript">
 
 ```typescript
-import type {Config} from 'jest';
+import type { Config } from "jest";
 
 const config: Config = {
-  setupFilesAfterEnv: ['@audioeye/testing-sdk-jest'],
+  setupFilesAfterEnv: ["@audioeye/testing-sdk-jest"],
 };
 
 export default config;
@@ -44,14 +45,14 @@ export default config;
   </CodeGroupItem>
 </CodeGroup>
 
-
 Or if using create-react-app, add the following to your `src/setupTests.js` file.
 
 ```javascript
-import '@audioeye/testing-sdk-jest';
+import "@audioeye/testing-sdk-jest";
 ```
 
 ## Usage
+
 Import the SDK into your test file, render your component, and then use the [available tests](#available-tests) to test for accessibility issues.
 
 Here's an example using React components and the [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
@@ -73,14 +74,18 @@ describe("Image", () => {
       expect(innerHTML).toMatchSnapshot();
     });
 
-    it("should have accessibility issues", async () => {
+    it("can test with render result and it should find accessibility issues", async () => {
       await expect(render(<Image />)).toFindAccessibilityIssues();
     });
 
-    it("should have an imgTextAlt issue", async () => {
-      await expect(render(<Image />)).toOnlyHaveTheseAccessibilityIssues(
-        "imgTextAlt"
-      );
+    it("can test with container and it should have an imgTextAlt issue", async () => {
+      const { container } = render(<Image />);
+      await expect(container).toOnlyHaveTheseAccessibilityIssues("imgTextAlt");
+    });
+
+    it("can test with fragment and it should match the snapshot", async () => {
+      const { asFragment } = render(<Image />);
+      await expect(asFragment()).toMatchAccessibilityReportSnapshot();
     });
   });
 
@@ -104,22 +109,34 @@ describe("Image", () => {
 ## Available Tests
 
 ### toFindAccessibilityIssues
+
 Used to identify if accessibility issues are found.
 
 ```javascript
-it('should not find accessibility issues', async () => {
+it("should not find accessibility issues", async () => {
   await expect(htmlWithAccessibleContent).not.toFindAccessibilityIssues();
 });
 ```
 
 ### toOnlyHaveTheseAccessibilityIssues
+
 Use to define which accessibility issues are expected. Pass a comma separated list of expected test names.
 
 ```javascript
-it('should only find an imgTextAlt and htmlSkipToMainNotFound issues', async () => {
+it("should only find an imgTextAlt and htmlSkipToMainNotFound issues", async () => {
   await expect(htmlWithAFewIssues).toOnlyHaveTheseAccessibilityIssues(
-    'imgTextAlt',
-    'htmlSkipToMainNotFound'
+    "imgTextAlt",
+    "htmlSkipToMainNotFound"
   );
+});
+```
+
+### toMatchAccessibilityReportSnapshot
+
+Use to take a [snapshot](https://jestjs.io/docs/snapshot-testing) of the accessibility report and compare it to the previously stored snapshot.
+
+```javascript
+it("should have the same accessibility report", async () => {
+  await expect(htmlWithAFewIssues).toMatchAccessibilityReportSnapshot();
 });
 ```
