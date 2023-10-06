@@ -18,6 +18,6 @@ There are three ways the AudioEye Testing SDK can help detect issues in your cod
 
 - Component-level testing using Jest or the CLI
 - Single-page testing using Puppeteer
-- Multi-page (aka workflow) testing using using Cypress
+<!-- - Multi-page (aka workflow) testing using using Cypress -->
 
 See each page for more details on requirements, what to install, and how to execute a test pass for each of these methods.
