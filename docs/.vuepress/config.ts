@@ -29,8 +29,8 @@ export default {
           text: 'Guide',
           children: [
             'get-started',
-            'jest',
             'cli',
+            'jest',
             'how-our-tests-work',
           ]
         }
