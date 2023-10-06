@@ -1,8 +1,5 @@
 # Testing with the CLI
 
-**TODOs**
-- Info on puppeteer in CLI pre-requisites
-
 ## Pre-requisites
 Visit the [Getting Started](get-started.md) page to learn how to setup the CLI in your project.
 
