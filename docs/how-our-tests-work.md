@@ -53,14 +53,20 @@ JSON file saved to /Users/rhigdon/Code/testing-sdk/packages/testing-sdk-cli/aete
 ```
 
 ## Describing a rule
-If you need more details about a specific rule, you can use the `describe` command to get more information.
+If you need more details about a specific code or it's parent rule, you can use the `describe` command to get more information. For instance, for the result `imgTextAlt.imgTextAltNotFound` you can find more information about the rule `imgTextAlt` by running:
 
 ```bash
 npx aetest describe imgTextAlt
 ```
 
-### Describe Output
+If you needed more information about the `imgTextAltNotFound` result, you could run:
 
+```bash
+npx aetest describe imgTextAltNotFound
+```
+
+### Describe Output
+#### imgTextAlt Output
 ```bash
 {
   code: 'imgTextAlt',
@@ -70,3 +76,12 @@ npx aetest describe imgTextAlt
   wcagSuccessCriteriaName: 'Non-Text Content'
 }
 ```
+#### imgTextAltNotFound Output
+```bash
+{
+  code: 'imgTextAltNotFound',
+  fullName: "Image isn't labelled or marked as decorative",
+  description: "Every image needs to inform assistive tools how to handle it. If it's a meaningful image, it needs to have a text description. If it's decorative or not informative, it needs to be marked so assistive tools can skip over it. If an image doesn't have either, it's not clear what the image is for or how to handle it. Assistive tools may skip over the image or give it a generic label that people won't understand.",
+  wcagSuccessCriteriaNumber: '1.1.1',
+  wcagSuccessCriteriaName: 'Non-Text Content'
+}
