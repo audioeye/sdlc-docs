@@ -2,7 +2,6 @@
 
 **TODOs**
 - Add a setup paragraph here
-- Fix describe function info (or details around it?)
 
 ## HTML Output
 
