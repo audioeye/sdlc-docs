@@ -66,7 +66,7 @@ npx aetest [command] [options]
 
 ### NPM Installation
 
-You can install the Jest package locally (as a developer only dependency) in your project. Currently this will also install the cli as a dependency
+You can install the Jest package locally (as a developer only dependency) in your project. 
 
 ```bash
 npm install -D @audioeye/testing-sdk-jest
