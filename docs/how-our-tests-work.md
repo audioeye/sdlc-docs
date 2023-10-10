@@ -1,7 +1,6 @@
 # Issue Detail Output
 
-**TODOs**
-- Add a setup paragraph here
+There are two formats you can use to understand what issues have been detected in your code: An HTML output file that displays information in a formatted table and a JSON output that can be converted into other file types (.CSV, .XLSX, etc).
 
 ## HTML Output
 
@@ -23,7 +22,7 @@ You can easily find details about each of these failure details in the HTML outp
 When a failure is returned, we will provide you the following information:
 
 - **Unique issue identifier** – A way to track each individual issue in project management tools.
-- **Rule Code and Result Code** – The result code indicates the specific issue was discovered by a parent rule (test). A rule can detect more than one issue (result).
+- **Rule Code and Result Code** – The result code indicates the specific issue that was discovered by a parent rule (test). A rule can detect more than one issue (result).
 - **Rule Name** – The name of the rule (test) that was run.
 - **Rule Description** – A description of what the rule (test) checks for.
 - **WCAG success criterion (number + name)** – The corresponding WCAG criteria for each rule.
@@ -51,8 +50,8 @@ JSON file saved to /Users/rhigdon/Code/testing-sdk/packages/testing-sdk-cli/aete
 ::: END AudioEye SDK CLI :::
 ```
 
-## Describing a rule
-If you need more details about a specific code or it's parent rule, you can use the `describe` command to get more information. For instance, for the result `imgTextAlt.imgTextAltNotFound` you can find more information about the rule `imgTextAlt` by running:
+## Describing a Rule
+If you need more details about a specific issue (ResultCode) or its parent rule (RuleCode), you can use the `describe` command to get more information. For instance, for the result `imgTextAlt.imgTextAltNotFound` you can find more information about the rule `imgTextAlt` by running:
 
 ```bash
 npx aetest describe imgTextAlt
