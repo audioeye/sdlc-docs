@@ -6,17 +6,20 @@
 - [**Jest**](#jest) - @audioeye/testing-sdk-jest
 
 ## Pre-Requisites
+
 AudioEye is hosting this SDK in Cloudsmith for secure distribution. In order to pull down dependencies, make sure you have an `.npmrc` file in the root your project with the following contents:
 
 ```bash
 @audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
 //npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=<ENTITLEMENT_TOKEN>
 ```
+
 **Note:** Beta users will have this pre-generated with the `ENTITLEMENT_TOKEN` filled out for them.
 
 ## CLI
 
 ### NPM Installation
+
 You can install the CLI as a developer only dependency in your project.
 
 ```bash
@@ -50,24 +53,82 @@ npx aetest [command] [options]
 ```
 
 #### Available Commands
-| Command | Description |
-| :------ | :--- |
-| scan [options] [url] | Perform an accessibility scan on a URL or on the provided raw html on stdin |
-| describe [rule] | Output available information about the rules in the testing framework and their usage in the testing sdk cli |
-| help [command] | Display help for a given command |
+
+| Command              | Description                                                                                                  |
+| :------------------- | :----------------------------------------------------------------------------------------------------------- |
+| scan [options] [url] | Perform an accessibility scan on a URL or on the provided raw html on stdin                                  |
+| describe [rule]      | Output available information about the rules in the testing framework and their usage in the testing sdk cli |
+| help [command]       | Display help for a given command                                                                             |
 
 #### Available Options
-| Option | Description |
-| :------ | :--- |
+
+| Option                           | Description                              |
+| :------------------------------- | :--------------------------------------- |
 | -V<br /> &#x2011;&#x2011;version | Output the current aetest version number |
-| -h<br /> &#x2011;&#x2011;help | Display help for a given command |
+| -h<br /> &#x2011;&#x2011;help    | Display help for a given command         |
 
 ## Jest
 
 ### NPM Installation
 
-You can install the Jest package locally (as a developer only dependency) in your project. 
+You can install the Jest package locally (as a developer only dependency) in your project.
 
 ```bash
 npm install -D @audioeye/testing-sdk-jest
+```
+
+## Software Development Lifecycle (SDLC)
+
+### GitHub Actions
+
+To download any of our packages in a GitHub Action, permissions need to be configured. An example of how to do this using environment variables is provided:
+
+1. Use an environment variable in your `.npmrc` file:
+
+```bash
+@audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
+//npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=${AUDIOEYE_ENTITLEMENT_TOKEN}
+```
+
+**Note:** For security reasons you should not commit the `AUDIOEYE_ENTITLEMENT_TOKEN` to your repository. Instead, you should set it up as a secret in GitHub and reference it in your workflow.
+
+2. Setup a [repository secret in GitHub](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) named `AUDIOEYE_ENTITLEMENT_TOKEN` with the value of your entitlement token.
+
+3. Use the environment variable in your workflow:
+
+```yaml
+name: Pull Request CI
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install Dependencies
+        env:
+          AUDIOEYE_ENTITLEMENT_TOKEN: ${{ secrets.AUDIOEYE_ENTITLEMENT_TOKEN }}
+        run: |
+          npm ci
+
+      - name: Build
+        run: |
+          npm run build
+
+      - name: Test
+        run: |
+          npm test
 ```
