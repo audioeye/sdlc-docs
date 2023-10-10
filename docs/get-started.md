@@ -11,10 +11,10 @@ AudioEye is hosting this SDK in Cloudsmith for secure distribution. In order to 
 
 ```bash
 @audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
-//npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=<ENTITLEMENT_TOKEN>
+//npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=${AUDIOEYE_ENTITLEMENT_TOKEN}
 ```
 
-**Note:** Beta users will have this pre-generated with the `ENTITLEMENT_TOKEN` filled out for them.
+**Note:** For security reasons you should not commit the `AUDIOEYE_ENTITLEMENT_TOKEN` to your repository. Instead, you should set it up as a secret in GitHub and reference it in your workflow. Beta users will have this pre-generated with the `AUDIOEYE_ENTITLEMENT_TOKEN` filled out for them.
 
 ## CLI
 
@@ -79,18 +79,9 @@ npm install -D @audioeye/testing-sdk-jest
 
 ## Software Development Lifecycle (SDLC)
 
-### GitHub Actions
+### GitHub Actions (example)
 
-To download any of our packages in a GitHub Action, permissions need to be configured. An example of how to do this using environment variables is provided:
-
-1. Use an environment variable in your `.npmrc` file:
-
-```bash
-@audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
-//npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=${AUDIOEYE_ENTITLEMENT_TOKEN}
-```
-
-**Note:** For security reasons you should not commit the `AUDIOEYE_ENTITLEMENT_TOKEN` to your repository. Instead, you should set it up as a secret in GitHub and reference it in your workflow.
+1. To download any of our packages in a GitHub Action, make sure you've set up permissions in your `.npmrc` with the contents shown in the [Pre-Requisites](#pre-requisites) section.
 
 2. Setup a [repository secret in GitHub](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) named `AUDIOEYE_ENTITLEMENT_TOKEN` with the value of your entitlement token.
 
