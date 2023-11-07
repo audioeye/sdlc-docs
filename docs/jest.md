@@ -80,7 +80,9 @@ describe("Image", () => {
 
     it("can test with container and it should have an imgTextAlt issue", async () => {
       const { container } = render(<Image />);
-      await expect(container).toOnlyHaveTheseAccessibilityIssues("imgTextAlt");
+      await expect(container).toOnlyHaveTheseAccessibilityIssues(
+        "Img_Name_Missing"
+      );
     });
 
     it("can test with fragment and it should match the snapshot", async () => {

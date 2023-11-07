@@ -32,6 +32,7 @@ export default {
             'cli',
             'jest',
             'how-our-tests-work',
+            'release-notes',
           ]
         }
       ],
