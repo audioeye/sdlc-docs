@@ -24,14 +24,13 @@ AudioEye is hosting the NPM packages for this SDK in Cloudsmith for secure distr
 
 ## CLI
 
-### NPM Installation
+### NPM Installation or Update
 
-You can install the CLI as a developer only dependency in your project.
+You can install or update the CLI (as a developer only dependency) using the following command:
 
 ```bash
 npm install -D @audioeye/testing-sdk-cli
 ```
-
 ### Installation in a Docker Container
 
 In order to run our CLI in Docker, you must set up your project to support Puppeteer. This Dockerfile works for ubuntu containers.
@@ -75,9 +74,9 @@ npx aetest [command] [options]
 
 ## Jest
 
-### NPM Installation
+### NPM Installation or Update
 
-You can install the Jest package locally (as a developer only dependency) in your project.
+You can install or update the Jest package locally (as a developer only dependency) in your project.
 
 ```bash
 npm install -D @audioeye/testing-sdk-jest
