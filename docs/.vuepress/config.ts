@@ -33,6 +33,7 @@ export default {
             'jest',
             'how-our-tests-work',
             'release-notes',
+            'troubleshooting',
           ]
         }
       ],
