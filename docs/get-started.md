@@ -13,7 +13,27 @@ NPM version 16 or greater is required to use AudioEye Testing SDK
 
 ## Pre-Requisites
 
-AudioEye is hosting the NPM packages for this SDK in Cloudsmith for secure distribution. In order to pull down dependencies, make sure you have an `.npmrc` file in the root your project with the following contents:
+AudioEye is hosting the NPM packages for this SDK in Cloudsmith for secure distribution. In order to download packages, 
+you will need a copy of your AudioEye Entitlement Token. This token is available in the
+[AudioEye Customer Portal](https://portal.audioeye.com/).
+
+### Getting your entitlement token
+
+1. Log in to the [AudioEye Customer Portal](https://portal.audioeye.com/). 
+2. Click on the account menu in the top right and select the *My Account* menu item.
+   ![My Account Selection](/my-account.png)
+3. Scroll down to the *Testing SDK Entitlement Token* section.
+4. If not created yet, click the *Generate Entitlement Token* button to create a token for your account.
+   ![Generate Entitlement Token](/generate-entitlement-token.png)
+5. Once complete click click on the *Copy Entitlement Token* button to copy the key to your clipboard.
+   ![Copy Entitlement Token](/copy-entitlement-token.png)
+
+This key can now be used to download the AudioEye Testing SDK packages. We will refer to this key as
+`AUDIOEYE_ENTITLEMENT_TOKEN` in the rest of this document.
+
+### Setting up your `.npmrc`
+
+In your node package root directory (where `package.json` lives), add or modify the `.npmrc` file with the following contents:
 
 ```bash
 @audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
