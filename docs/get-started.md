@@ -31,6 +31,12 @@ you will need a copy of your AudioEye Entitlement Token. This token is available
 This key can now be used to download the AudioEye Testing SDK packages. We will refer to this key as
 `AUDIOEYE_ENTITLEMENT_TOKEN` in the rest of this document.
 
+::: tip
+Note: If you want to replace your Entitlement Token key with a new one you can use the Refresh Entitlement Token button.
+This will replace your existing token, and your existing projects and workflows will need to be updated to use the new
+token.
+:::
+
 ### Setting up your `.npmrc`
 
 In your node package root directory (where `package.json` lives), add or modify the `.npmrc` file with the following contents:
