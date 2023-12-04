@@ -32,7 +32,7 @@ This key can now be used to download the AudioEye Testing SDK packages. We will 
 `AUDIOEYE_ENTITLEMENT_TOKEN` in the rest of this document.
 
 ::: tip
-Note: If you want to replace your Entitlement Token key with a new one you can use the Refresh Entitlement Token button.
+Note: If you want to replace your entitlement token key with a new one you can use the Refresh Entitlement Token button.
 This will replace your existing token, and your existing projects and workflows will need to be updated to use the new
 token.
 :::
