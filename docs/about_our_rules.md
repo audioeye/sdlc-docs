@@ -1,0 +1,97 @@
+# About Our Rules
+
+## How Does Automated Testing Work?
+
+This software development kit (SDK) lets you use AudioEye's automated testing suite to analyze your site and get details of the issues discovered.
+
+Each individual test in the automated test package is called a rule (RuleCode). Rules are based on specific criteria we expect are present in your site or code, as defined by WCAG guidelines. 
+
+WCAG guidelines are complex and comprised of multiple criteria, some of which cannot be measured accurately by automated testing. If a rule does not detect any issues, it doesn’t mean the WCAG guideline itself is passed. Rather, the details or expected behavior written in each rule are present.
+
+## Understanding AudioEye's Rules
+Depending on the type of testing you are conducting -- like if you are using the ``--component`` flag (the only option during Jest testing) or if you are running a full page scan -- the set of accessibility rules that will be run is slightly different.  Not all rules apply to individual html components, and similarly some issues can only be detected during a full page scan.  To see what tests are being run use the `--print-test-list` flag on the CLI when running a scan.
+
+```bash
+% npx aetest scan --component --print-test-list < component.html
+::: START AudioEye SDK CLI :::
+
+Scanning HTML from STDIN
+The following rules were run...
+   Aria_Attribute_Invalid
+   Aria_DescribedBy_Invalid
+   Aria_Label_TextContent_MisMatch
+   Aria_LabelledBy_Invalid
+   Aria_Role_AttributeRequirement_Missing
+   Aria_Role_ChildElem_Missing
+   Aria_Role_Invalid
+   Aria_Role_ParentElem_Missing
+   Audio_Controls_Missing_review
+   Button_Name_Missing
+   Button_Name_WeakName
+   FormField_Autocomplete_Invalid
+   FormField_Autocomplete_MisMatch_review
+   FormField_Autocomplete_Missing
+   FormField_Autocomplete_Multiple
+   FormField_ContextChange_Detect_review
+   FormField_ErrorHandle_Missing_review
+   FormField_Name_Missing
+   FormField_Name_WeakName
+   FormImportant_ErrorHandle_Missing_review
+   Heading_Name_Empty
+   Heading_Sequence_Wrong
+   Html_Blockquote_Cite_Invalid
+   Html_Element_ID_Duplicate
+   Html_Name_Redundant
+   Html_Possible_Heading_review
+   Html_Zoom_ScrollReflow_Found_review
+   HtmlList_ChildElem_LI_Missing
+   HtmlList_Definition_ChildElem_Missing
+   HtmlList_Definition_ParentDL_Missing
+   Iframe_Name_Duplicate
+   Iframe_Name_Missing
+   Iframe_Name_Redundant
+   Iframe_Name_WeakName
+   Img_Name_Missing
+   Img_Name_ShouldBe_Empty_review
+   Link_AdjacentHref_Redundant
+   Link_AnchorTarget_Invalid
+   Link_Href_Missing
+   Link_Name_Missing
+   Link_Name_Redundant
+   Link_Name_WeakName
+   Modal_Control_Detect_review
+   Modal_Usage_Cookie_Detect_review
+   Modal_Usage_Detect_review
+   Svg_Name_Missing
+   Table_Caption_Missing
+   Table_Caption_Summary_Redundant
+   Table_Header_Empty
+   Table_Header_Missing
+   Text_LetterSpacing_Detect
+   Text_Size_TooSmall_review
+
+Total rules run: 52
+
+
+Found 3 accessibility issues
+   Img_Name_Missing - count: 3
+
+Full Test Results were output to testing-sdk/aetest_output.html
+
+::: END AudioEye SDK CLI :::
+```
+
+## Describing a Rule
+
+If you need more details about a specific issue, you can use the `describe` command to get more information. For instance, for the result `Img_Name_Missing` you can find more information by running:
+
+```bash
+% npx aetest describe Img_Name_Missing
+{
+  code: 'Img_Name_Missing',
+  fullName: 'Image accessible name is missing',
+  description: "We detected an image that is missing an accessible name. if the image is unimportant or decorative, provide an empty-alt attribute as in the following: `alt=''`. If the image needs announcing to screen-readers, add an appropriate alt-attribute or related ARIA property to provide an accessible name.",
+  wcagSuccessCriteriaNumber: '1.1.1',
+  wcagSuccessCriteriaName: 'Non-Text Content',
+  wcagSuccessCriteriaLevelCode: 'A',
+```

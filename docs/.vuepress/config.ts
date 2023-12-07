@@ -31,7 +31,7 @@ export default {
             'get-started',
             'cli',
             'jest',
-            'about-rules',
+            'about_our_rules',
             'how-our-tests-work',
             'release-notes',
             'troubleshooting',
