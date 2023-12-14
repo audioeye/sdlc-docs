@@ -1,6 +1,6 @@
 # About AudioEye's Accessibility Testing SDK
 
-AudioEye’s Accessibility Testing SDK helps web developers test code for accessibility issues in their local, staging, or CI/CD environments.
+AudioEye’s Accessibility Testing Software Development Kit (SDK) helps web developers test code for accessibility issues in their local, staging, or CI/CD environments.
 
 Checking for issues early in the development process makes it easier to fix those problems at the source and reduces the volume of issues that make it into your production environments.
 
