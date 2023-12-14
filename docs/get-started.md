@@ -2,7 +2,7 @@
 
 ## Available Packages
 
-AudioEye Testing SDK is available as NPM packages (Node Package Manager)
+AudioEye's Accessibility Testing SDK is available as NPM packages (Node Package Manager)
 
 - [**CLI**](#cli) - @audioeye/testing-sdk-cli
 - [**Jest**](#jest) - @audioeye/testing-sdk-jest
@@ -25,17 +25,24 @@ you will need a copy of your AudioEye Entitlement Token. This token is available
 3. Scroll down to the *Testing SDK Entitlement Token* section.
 4. If not created yet, click the *Generate Entitlement Token* button to create a token for your account.
    ![Generate Entitlement Token](/generate-entitlement-token.png)
-5. Once complete click click on the *Copy Entitlement Token* button to copy the key to your clipboard.
+5. Once complete click on the *Copy Entitlement Token* button to copy the key to your clipboard.
    ![Copy Entitlement Token](/copy-entitlement-token.png)
 
 This key can now be used to download the AudioEye Testing SDK packages. We will refer to this key as
 `AUDIOEYE_ENTITLEMENT_TOKEN` in the rest of this document.
 
-::: tip
-Note: If you want to replace your entitlement token key with a new one you can use the Refresh Entitlement Token button.
-This will replace your existing token, and your existing projects and workflows will need to be updated to use the new
-token.
-:::
+### Refreshing your entitlement token
+If you want to replace your entitlement token key with a new one, follow these steps: 
+
+1. Log in to the [AudioEye Customer Portal](https://portal.audioeye.com/). 
+2. Click on the account menu in the top right and select the *My Account* menu item.
+   ![My Account Selection](/my-account.png)
+3. Scroll down to the *Testing SDK Entitlement Token* section.
+4. Click the *Refresh Entitlement Token* button. The new token will appear.
+5. Click on the *Copy Entitlement Token* button to copy the new token key to your clipboard.
+   ![Copy Entitlement Token](/copy-entitlement-token.png) 
+
+Your existing projects and workflows will need to be manually updated to use the new token. Proceed with the steps described in the **Setting up your `.npmrc** section below.
 
 ### Setting up your `.npmrc`
 
