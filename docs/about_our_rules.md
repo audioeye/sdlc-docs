@@ -2,7 +2,7 @@
 
 ## How Does Automated Testing Work?
 
-This software development kit (SDK) lets you use AudioEye's automated testing suite to analyze your site and get details of the issues discovered.
+The Accessibility Testing SDK lets you use AudioEye's automated testing suite to analyze your site and get details of the issues discovered.
 
 Each individual test in the automated test package is called a rule (RuleCode). Rules are based on specific criteria we expect are present in your site or code, as defined by WCAG guidelines. 
 
