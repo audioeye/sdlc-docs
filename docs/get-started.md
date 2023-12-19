@@ -91,20 +91,17 @@ npx aetest [command] [options]
 ```
 
 #### Available Commands
-
-| Command              | Description                                                                                                  |
-| :------------------- | :----------------------------------------------------------------------------------------------------------- |
-| scan [options] [url] | Perform an accessibility scan on a URL or on the provided raw html on stdin                                  |
-| describe [rule]      | Output available information about the rules in the testing framework and their usage in the testing sdk cli |
-| help [command]       | Display help for a given command                                                                             |
+```
+  scan [options] [url]  Perform an accessibility scan on a URL or on the provided raw html on stdin
+  describe [rule]       Output available information about the rules in the testing framework and their usage in the testing sdk cli
+  help [command]        display help for command    
+```
 
 #### Available Options
-
-| Option                           | Description                              |
-| :------------------------------- | :--------------------------------------- |
-| -V<br /> &#x2011;&#x2011;version | Output the current aetest version number |
-| -h<br /> &#x2011;&#x2011;help    | Display help for a given command         |
-
+```
+  -V, --version         output the version number
+  -h, --help            display help for command
+```
 ## Jest
 
 ### NPM Installation or Update
