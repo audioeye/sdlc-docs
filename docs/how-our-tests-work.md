@@ -1,6 +1,6 @@
 # Issue Detail Output
 
-There are two formats you can use to understand what issues have been detected in your code: An HTML output file that displays information in a formatted table and a JSON output that can be converted into other file types (.CSV, .XLSX, etc).
+There are three formats you can use to understand what issues have been detected in your code: An HTML output file that displays information in a formatted table, a JSON output that can be converted into other spreadsheet file types, and a CSV output format that can be uploaded into project management tools.
 
 ## HTML Output
 
@@ -39,7 +39,7 @@ In addition by clicking **View Details** on an issue you will have access to the
 
 ## JSON Output
 
-If you're prefer to work with JSON, you can use the `-t` flag to output the results in JSON format.
+If you prefer to work with to work with JSON, you can use the `-t` flag with `json` to output the results in JSON format.
 
 ```bash
 % npx aetest scan -c -t json < component.html
@@ -51,6 +51,24 @@ Found 3 accessibility issues
    Img_Name_Missing - count: 3
 
 JSON file saved to testing-sdk/aetest_output.json
+
+::: END AudioEye SDK CLI :::
+```
+
+## CSV Output
+
+If you prefer to work with to work with CSV, you can use the `-t` flag with `csv` to output the results in CSV format.
+
+```bash
+% npx aetest scan -c -t csv < component.html
+::: START AudioEye SDK CLI :::
+
+Scanning HTML from STDIN
+
+Found 3 accessibility issues
+   Img_Name_Missing - count: 3
+
+JSON file saved to testing-sdk/aetest_output.csv
 
 ::: END AudioEye SDK CLI :::
 ```
