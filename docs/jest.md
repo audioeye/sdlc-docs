@@ -45,11 +45,13 @@ export default config;
   </CodeGroupItem>
 </CodeGroup>
 
-Or if using create-react-app, add the following to your `src/setupTests.js` file.
+::: tip Create React App users
+If you are using [create-react-app](https://create-react-app.dev/), it may already have a `setupFilesAfterEnv` pointing to `src/setupTests.js`. Instead of modifying `setupFilesAfterEnv`, instead add the following to your `src/setupTests.js` file.
 
 ```javascript
 import "@audioeye/testing-sdk-jest";
 ```
+:::
 
 ## Usage
 
@@ -131,12 +133,7 @@ Use `.toOnlyHaveTheseAccessibilityIssues` when checking if a component has exact
 
 ```javascript
 it('expect to find an accessibility issues when no alt-text is passed to component', async () => {
-  await expect(render(<Image />)).toFindAccessibilityIssues();
-});
-```
-```javascript
-it('should not have accessibility issues when a good alt-text is passed in', async () => {
-  await expect(render(<Image altText="Company Logo" />)).not.toFindAccessibilityIssues();
+  await expect(render(<Image />)).toOnlyHaveTheseAccessibilityIssues('Img_Name_Missing');
 });
 ```
 
@@ -145,13 +142,13 @@ it('should not have accessibility issues when a good alt-text is passed in', asy
 Use `.toFindTheseAccessibilityIssues` when checking if a component's accessibility issues includes the issues expected. Pass a comma separated list of expected test names.
 
 ```javascript
-it('expect to find an accessibility issue when no alt-text is passed to component', async () => {
+it('expect to find an alt-text accessibility issue when no alt-text is passed to component', async () => {
   const { container } = render(<Image />);
   await expect(container).toFindTheseAccessibilityIssues('Img_Name_Missing');
 });
 ```
 ```javascript
-it('expect to not find an accessibility issue when a good alt-text is passed to component', async () => {
+it('expect to not find an alt-text accessibility issue when an alt-text is passed to component', async () => {
   const { container } = render(<Image altText="Company Logo" />);
   await expect(container).not.toFindTheseAccessibilityIssues('Img_Name_Missing');
 });
@@ -161,11 +158,6 @@ it('expect to not find an accessibility issue when a good alt-text is passed to 
 
 Use `.toMatchAccessibilityReportSnapshot` to take a [snapshot](https://jestjs.io/docs/snapshot-testing) of the accessibility report and compare it to the previously stored snapshot.
 
-```javascript
-it('expect match snapshot when no alt-text is passed to component', async () => {
-  await expect(render(<Image />)).toMatchAccessibilityReportSnapshot();
-});
-```
 ```javascript
 it('expect match snapshot when a good alt-text is passed to component', async () => {
   await expect(render(<Image altText="Company Logo" />)).toMatchAccessibilityReportSnapshot();
