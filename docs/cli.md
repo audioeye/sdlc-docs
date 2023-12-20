@@ -5,10 +5,16 @@ Visit the [Getting Started](get-started.md) page to learn how to setup the CLI i
 
 ## Scanning
 
-### A URL
+### A Website
+
+::: tip Escaping the url
+Wrapping the URL with single quotes is an easy way to avoid issues with the shell interpreting special characters.
+:::
+
 ```bash
-npx aetest scan https://www.audioeye.com
+npx aetest scan 'https://www.audioeye.com'
 ```
+
 
 ### A Local Document
 ```bash
