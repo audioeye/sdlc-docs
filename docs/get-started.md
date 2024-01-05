@@ -50,7 +50,7 @@ In your node package root directory (where `package.json` lives), add or modify 
 
 ```bash
 @audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
-//npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=${AUDIOEYE_ENTITLEMENT_TOKEN}
+//npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=AUDIOEYE_ENTITLEMENT_TOKEN
 ```
 
 **Note:** For security reasons you should not commit the `AUDIOEYE_ENTITLEMENT_TOKEN` to your repository. Instead, you should set it up as a secret in GitHub and reference it in your workflow. Beta users will have this pre-generated with the `AUDIOEYE_ENTITLEMENT_TOKEN` filled out for them.
