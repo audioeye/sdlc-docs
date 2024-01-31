@@ -59,4 +59,4 @@ npx aetest scan < example_inputs/component.html -c
 
 Once you've run a scan, the test results will be added to an HTML document at the file path specified in the output. Here is an example result:
 
-![Example table output](/html-output-table.png)
+![A screenshot displaying a table that shows a list of seven accessibility issues found after a scan was performed. Each result has a name, the WCAG level, success critria, and name, along with a link to view more details.](/html-output-table.png)
