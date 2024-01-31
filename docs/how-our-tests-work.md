@@ -21,7 +21,7 @@ Full Test Results were output to testing-sdk/aetest_output.html
 
 You can easily find details about each of these failure details in the HTML output file. Here is an example result:
 
-![Example table output](/html-output-table.png)
+![A screenshot displaying a table that shows a list of seven accessibility issues found after a scan was performed. Each result has a name, the WCAG level, success critria, and name, along with a link to view more details.](/html-output-table.png)
 
 When a failure is returned, we will provide you the following information for all issues:
 
