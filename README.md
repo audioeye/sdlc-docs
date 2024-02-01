@@ -4,6 +4,6 @@ AudioEye’s Testing SDK helps web developers and front-end engineers test code 
 
 ## External Docs
 
-- **AudioEye Prod (Coming Soon)**: [http://developer.audioeye.com/](http://developer.audioeye.com/)
+- **AudioEye Prod**: [http://developer.audioeye.com/](http://developer.audioeye.com/)
 - **AudioEye Dev**: [https://testing-sdk-docs-stage.dev-audioeye.com/](https://testing-sdk-docs-stage.dev-audioeye.com/)
 - **Github Pages**: [https://audioeye.github.io/sdlc-docs/](https://audioeye.github.io/sdlc-docs/)
