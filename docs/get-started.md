@@ -6,6 +6,7 @@ AudioEye's Accessibility Testing SDK is available as NPM packages (Node Package 
 
 - [**CLI**](#cli) - @audioeye/testing-sdk-cli
 - [**Jest**](#jest) - @audioeye/testing-sdk-jest
+- [**Cypress**](#cypress) - @audioeye/testing-sdk-cypress
 
 ## Software Requirements
 
