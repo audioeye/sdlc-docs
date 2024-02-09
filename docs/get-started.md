@@ -112,6 +112,65 @@ You can install or update the Jest package locally (as a developer only dependen
 npm install -D @audioeye/testing-sdk-jest
 ```
 
+Set up the test matchers in your [Jest configuration file](https://jestjs.io/docs/configuration#setupfilesafterenv-array).
+
+<CodeGroup>
+  <CodeGroupItem title="Javascript" active>
+
+```javascript
+const config = {
+  setupFilesAfterEnv: ["@audioeye/testing-sdk-jest"],
+};
+module.exports = config;
+```
+
+  </CodeGroupItem>
+
+  <CodeGroupItem title="Typescript">
+
+```typescript
+import type { Config } from "jest";
+
+const config: Config = {
+  setupFilesAfterEnv: ["@audioeye/testing-sdk-jest"],
+};
+
+export default config;
+```
+
+  </CodeGroupItem>
+</CodeGroup>
+
+::: tip Create React App users
+If you are using [create-react-app](https://create-react-app.dev/), it may already have a `setupFilesAfterEnv` pointing to `src/setupTests.js`. Instead of modifying `setupFilesAfterEnv`, instead add the following to your `src/setupTests.js` file.
+
+```javascript
+import "@audioeye/testing-sdk-jest";
+```
+:::
+
+## Cypress
+
+### NPM Installation or Update
+
+```bash
+npm install -D @audioeye/testing-sdk-cypress
+```
+
+__`cypress-promise` is required when using `@audioeye/testing-sdk-cypress`.__
+```bash
+npm install -D cypress-promise
+```
+
+Set up the test matchers in your [Cypress support file](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Support-file). In earlier versions of Cypress this was `./cypress/support/index.*` and in later versions you can use `./cypress/support/e2e.*` for end-to-end tests and `./cypress/support/component.*` for component level testing.
+
+`chai` is globally available in Cypress, so you can use the following code to add accessibility assertions to your tests.
+
+```javascript
+import { chaiAudioEyeAssertions } from '@audioeye/testing-sdk-cypress';
+chai.use(chaiAudioEyeAssertions);
+```
+
 ## Software Development Lifecycle (SDLC)
 
 ### GitHub Actions (example)

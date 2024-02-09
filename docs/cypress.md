@@ -1,0 +1,92 @@
+# Testing With Cypress
+
+The AudioEye Testing SDK Cypress Library gives you the ability to write Cypress tests to test for accessibility issues in your web application.
+
+## Pre-requisites
+
+Visit the [Getting Started](get-started.md#cypress) page to learn how to setup Cypress in your project.
+
+**Note:** Our testing library uses [`cypress-promise`](https://www.npmjs.com/package/cypress-promise).
+
+## Usage
+
+Import [`cypress-promise`](https://www.npmjs.com/package/cypress-promise) into your test file, visit the page you wish to test, and then use the [available tests](#available-tests) to test for accessibility issues.
+
+```javascript
+import promisify from 'cypress-promise'
+
+describe('accessibility tests', () => {
+  it('accessibility for the entire page matches our expectation', async () => {
+    cy.visit('http://localhost:3000')
+
+    // For full page scan that uses the root element, we need to "get" something first otherwise the page won't be settled
+    cy.get('[data-cy="login"]').should('contain', 'Join or Login');
+
+    const htmlRootElement = await promisify(cy.get('html:root'));
+
+    await expect(htmlRootElement).to.findAccessibilityIssues();
+    await expect(htmlRootElement).to.findTheseAccessibilityIssues('Img_Name_Missing');
+    await expect(htmlRootElement).to.onlyHaveTheseAccessibilityIssues( 'Img_Name_Missing', 'Text_Contrast_TooLow', 'Html_Possible_Heading');
+  });
+
+  it('accessibility for the login button matches our expectation', async () => {
+    cy.visit('http://localhost:3000')
+
+    const loginButton = await promisify(cy.get('[data-cy="login"]'));
+
+    await expect(loginButton).to.not.findAccessibilityIssues();
+  });
+});
+```
+
+## Available Tests
+
+### findAccessibilityIssues
+
+Use `.findAccessibilityIssues` when checking if a component has accessibility issues.
+
+```javascript
+it('expect to find accessibility issues on the page', async () => {
+    cy.visit('http://localhost:3000');
+    const htmlRootElement = await promisify(cy.get('html:root'));
+    await expect(htmlRootElement).to.findAccessibilityIssues();
+});
+```
+```javascript
+it('expect to find no accessibility issues on the page', async () => {
+    cy.visit('http://localhost:3000');
+    const htmlRootElement = await promisify(cy.get('html:root'));
+    await expect(htmlRootElement).to.not.findAccessibilityIssues();
+});
+```
+
+### onlyHaveTheseAccessibilityIssues
+
+Use `.onlyHaveTheseAccessibilityIssues` when checking if a component has exactly the same issues as those expected. Pass a comma separated list of expected test names.
+
+```javascript
+it('expect to find an accessibility issues when no alt-text is passed to component', async () => {
+  cy.visit('http://localhost:3000');
+  const companyLogo = await promisify(cy.get('[data-cy="company-logo"]'));
+  await expect(htmlRootElement).to.onlyHaveTheseAccessibilityIssues('Img_Name_Missing');
+});
+```
+
+### findTheseAccessibilityIssues
+
+Use `.findTheseAccessibilityIssues` when checking if a component's accessibility issues includes the issues expected. Pass a comma separated list of expected test names.
+
+```javascript
+it('expect to find an alt-text accessibility issue', async () => {
+  cy.visit('http://localhost:3000');
+  const companyLogo = await promisify(cy.get('[data-cy="company-logo"]'));
+  await expect(htmlRootElement).to.findTheseAccessibilityIssues('Img_Name_Missing');
+});
+```
+```javascript
+it('expect to not find an alt-text accessibility issue', async () => {
+    cy.visit('http://localhost:3000');
+    const descriptiveImage = await promisify(cy.get('[data-cy="descriptive-image"]'));
+    await expect(htmlRootElement).to.not.findTheseAccessibilityIssues('Img_Name_Missing');
+});
+```

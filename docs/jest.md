@@ -4,54 +4,9 @@ The AudioEye Testing SDK Jest Library gives you the ability to write Jest tests 
 
 ## Pre-requisites
 
-Visit the [Getting Started](get-started.md) page to learn how to setup Jest in your project.
+Visit the [Getting Started](get-started.md#jest) page to learn how to setup Jest in your project.
 
 **Note:** This guide's Jest test examples use [`@testing-library/react`](https://www.npmjs.com/package/@testing-library/react). Please follow their setup instructions, particularly the differences between Jest versions. [Jest 28](https://jestjs.io/blog/2022/04/25/jest-28#breaking-changes) introduced breaking changes to the testing environment that need to be handled correctly. You can find more information on how to do that [here](https://jestjs.io/docs/configuration#testenvironment-string).
-
-## Installing the library
-
-You can install the Jest package locally (as a developer only dependency) in your project.
-
-```bash
-npm install -D @audioeye/testing-sdk-jest
-```
-
-Set up the test matchers in your [Jest configuration file](https://jestjs.io/docs/configuration#setupfilesafterenv-array).
-
-<CodeGroup>
-  <CodeGroupItem title="Javascript" active>
-
-```javascript
-const config = {
-  setupFilesAfterEnv: ["@audioeye/testing-sdk-jest"],
-};
-module.exports = config;
-```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="Typescript">
-
-```typescript
-import type { Config } from "jest";
-
-const config: Config = {
-  setupFilesAfterEnv: ["@audioeye/testing-sdk-jest"],
-};
-
-export default config;
-```
-
-  </CodeGroupItem>
-</CodeGroup>
-
-::: tip Create React App users
-If you are using [create-react-app](https://create-react-app.dev/), it may already have a `setupFilesAfterEnv` pointing to `src/setupTests.js`. Instead of modifying `setupFilesAfterEnv`, instead add the following to your `src/setupTests.js` file.
-
-```javascript
-import "@audioeye/testing-sdk-jest";
-```
-:::
 
 ## Usage
 
