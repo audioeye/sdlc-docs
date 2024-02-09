@@ -1,5 +1,10 @@
 # Release Notes
 
+### Version 1.1.1
+
+- Added ability to test with [Cypress](get-started.md#cypress)
+- Additional rule updates
+
 ### Version 1.0.3
 
 - First major release
@@ -8,7 +13,7 @@
 
 ### Verrsion 0.1.21
 
-- Additional rule updates, some new rules, and some rules names were changed (removal of _review)
+- Additional rule updates, some new rules, and some rules names were changed (removal of \_review)
 - Added scanned URL to HTML output
 - Add some guidance to jest output
 
