@@ -13,10 +13,8 @@ describe('accessibility tests', () => {
       'BadTag_Emphasis_Detect',
       'BadTag_Presentational_Detect',
       'Svg_Name_Missing',
-      'Svg_Name_Missing',
-      'Svg_Name_Missing',
+      'FormField_Name_Missing',
       'Link_Name_Redundant',
-      'Html_Possible_Heading',
       'Html_Possible_Heading',
     );
   });
