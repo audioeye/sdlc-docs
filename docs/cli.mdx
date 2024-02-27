@@ -9,12 +9,14 @@ Visit the [Getting Started](./get-started) page to learn how to setup the CLI in
 ### A Website
 
 :::tip Escaping the url
+
 Wrapping the URL with single quotes is an easy way to avoid issues with the shell interpreting special characters.
-:::
 
 ```bash
 npx aetest scan 'https://www.audioeye.com'
 ```
+
+:::
 
 ### A Local Document
 
@@ -22,7 +24,8 @@ npx aetest scan 'https://www.audioeye.com'
 npx aetest scan < example_inputs/document.html
 ```
 
-By default, the CLI will expect a document to be a complete HTML document. If you are scanning a component, you can use the `-c` flag to run in component mode.
+By default, the CLI will expect a document to be a complete HTML document. If you are scanning a component, you can use
+the `-c` flag to run in component mode.
 
 ### Scan Output
 
@@ -62,6 +65,7 @@ npx aetest scan < example_inputs/component.html -c
 
 ## HTML Output
 
-Once you've run a scan, the test results will be added to an HTML document at the file path specified in the output. Here is an example result:
+Once you've run a scan, the test results will be added to an HTML document at the file path specified in the output.
+Here is an example result:
 
 ![Example table output](/img/html-output-table.png)
