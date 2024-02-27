@@ -49,18 +49,22 @@ If you want to replace your entitlement token key with a new one, follow these s
 5. Click on the _Copy Entitlement Token_ button to copy the new token key to your clipboard.
    ![Copy Entitlement Token](/img/copy-entitlement-token.png)
 
-Your existing projects and workflows will need to be manually updated to use the new token. Proceed with the steps described in the **Setting up your `.npmrc** section below.
+Your existing projects and workflows will need to be manually updated to use the new token. Proceed with the steps
+described in the **Setting up your `.npmrc** section below.
 
 ### Setting up your `.npmrc`
 
-In your node package root directory (where `package.json` lives), add or modify the `.npmrc` file with the following contents:
+In your node package root directory (where `package.json` lives), add or modify the `.npmrc` file with the following
+contents:
 
 ```bash
 @audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
 //npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=AUDIOEYE_ENTITLEMENT_TOKEN
 ```
 
-**Note:** For security reasons you should not commit the `AUDIOEYE_ENTITLEMENT_TOKEN` to your repository. Instead, you should set it up as a secret in GitHub and reference it in your workflow. Beta users will have this pre-generated with the `AUDIOEYE_ENTITLEMENT_TOKEN` filled out for them.
+**Note:** For security reasons you should not commit the `AUDIOEYE_ENTITLEMENT_TOKEN` to your repository. Instead, you
+should set it up as a secret in GitHub and reference it in your workflow. Beta users will have this pre-generated with
+the `AUDIOEYE_ENTITLEMENT_TOKEN` filled out for them.
 
 ## CLI
 
@@ -74,7 +78,8 @@ npm install -D @audioeye/testing-sdk-cli
 
 ### Installation in a Docker Container
 
-In order to run our CLI in Docker, you must set up your project to support Puppeteer. This Dockerfile works for ubuntu containers.
+In order to run our CLI in Docker, you must set up your project to support Puppeteer. This Dockerfile works for ubuntu
+containers.
 
 ```dockerfile
 FROM ubuntu-22.04
@@ -90,7 +95,8 @@ RUN apt-get update \
 
 You must also run `docker run` with the flag `--cap-add=SYS_ADMIN`.
 
-You can find full details on how to set up Puppeteer in Docker [here](https://pptr.dev/troubleshooting#running-puppeteer-in-docker).
+You can find full details on how to set up Puppeteer in Docker
+[here](https://pptr.dev/troubleshooting#running-puppeteer-in-docker).
 
 ### Using the CLI
 
@@ -123,7 +129,8 @@ You can install or update the Jest package locally (as a developer only dependen
 npm install -D @audioeye/testing-sdk-jest
 ```
 
-Set up the test matchers in your [Jest configuration file](https://jestjs.io/docs/configuration#setupfilesafterenv-array).
+Set up the test matchers in your
+[Jest configuration file](https://jestjs.io/docs/configuration#setupfilesafterenv-array).
 
 ```mdx-code-block
 <Tabs groupId="jest-configuration">
@@ -132,7 +139,7 @@ Set up the test matchers in your [Jest configuration file](https://jestjs.io/doc
 
 ```javascript
 const config = {
-  setupFilesAfterEnv: ["@audioeye/testing-sdk-jest"],
+  setupFilesAfterEnv: ['@audioeye/testing-sdk-jest'],
 };
 module.exports = config;
 ```
@@ -143,10 +150,10 @@ module.exports = config;
 ```
 
 ```typescript
-import type { Config } from "jest";
+import type { Config } from 'jest';
 
 const config: Config = {
-  setupFilesAfterEnv: ["@audioeye/testing-sdk-jest"],
+  setupFilesAfterEnv: ['@audioeye/testing-sdk-jest'],
 };
 
 export default config;
@@ -157,11 +164,14 @@ export default config;
 </Tabs>
 ```
 
-:::tip Create React App users
-If you are using [create-react-app](https://create-react-app.dev/), it may already have a `setupFilesAfterEnv` pointing to `src/setupTests.js`. Instead of modifying `setupFilesAfterEnv`, instead add the following to your `src/setupTests.js` file.
+:::tip Create React App Users
+
+If you are using [create-react-app](https://create-react-app.dev/), it may already have a `setupFilesAfterEnv` pointing
+to `src/setupTests.js`. Instead of modifying `setupFilesAfterEnv`, instead add the following to your `src/setupTests.js`
+file.
 
 ```javascript
-import "@audioeye/testing-sdk-jest";
+import '@audioeye/testing-sdk-jest';
 ```
 
 :::
@@ -180,12 +190,16 @@ npm install -D @audioeye/testing-sdk-cypress
 npm install -D cypress-promise
 ```
 
-Set up the test matchers in your [Cypress support file](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Support-file). In earlier versions of Cypress this was `./cypress/support/index.*` and in later versions you can use `./cypress/support/e2e.*` for end-to-end tests and `./cypress/support/component.*` for component level testing.
+Set up the test matchers in your
+[Cypress support file](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Support-file). In
+earlier versions of Cypress this was `./cypress/support/index.*` and in later versions you can use
+`./cypress/support/e2e.*` for end-to-end tests and `./cypress/support/component.*` for component level testing.
 
-`chai` is globally available in Cypress, so you can use the following code to add accessibility assertions to your tests.
+`chai` is globally available in Cypress, so you can use the following code to add accessibility assertions to your
+tests.
 
 ```javascript
-import { chaiAudioEyeAssertions } from "@audioeye/testing-sdk-cypress";
+import { chaiAudioEyeAssertions } from '@audioeye/testing-sdk-cypress';
 chai.use(chaiAudioEyeAssertions);
 ```
 
@@ -193,9 +207,12 @@ chai.use(chaiAudioEyeAssertions);
 
 ### GitHub Actions (example)
 
-1. To download any of our packages in a GitHub Action, make sure you've set up permissions in your `.npmrc` with the contents shown in the [Pre-Requisites](#pre-requisites) section.
+1. To download any of our packages in a GitHub Action, make sure you've set up permissions in your `.npmrc` with the
+   contents shown in the [Pre-Requisites](#pre-requisites) section.
 
-2. Setup a [repository secret in GitHub](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) named `AUDIOEYE_ENTITLEMENT_TOKEN` with the value of your entitlement token.
+2. Setup a
+   [repository secret in GitHub](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)
+   named `AUDIOEYE_ENTITLEMENT_TOKEN` with the value of your entitlement token.
 
 3. Use the environment variable in your workflow:
 
@@ -213,13 +230,14 @@ jobs:
     name: Build & Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
-          cache: "npm"
+          node-version: '18'
+          registry-url: 'https://npm.cloudsmith.io/audioeye-K01/audioeye/'
+          cache: 'npm'
 
       - name: Install Dependencies
         env:
