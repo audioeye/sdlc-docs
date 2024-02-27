@@ -1,9 +1,25 @@
-# Testing SDK
+# Website
 
-AudioEye’s Testing SDK helps web developers and front-end engineers test code for accessibility issues in their local, staging, or CI/CD environments.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-## External Docs
+### Installation
 
-- **AudioEye Prod**: [http://developer.audioeye.com/](http://developer.audioeye.com/)
-- **AudioEye Dev**: [https://testing-sdk-docs-stage.dev-audioeye.com/](https://testing-sdk-docs-stage.dev-audioeye.com/)
-- **Github Pages**: [https://audioeye.github.io/sdlc-docs/](https://audioeye.github.io/sdlc-docs/)
+```
+$ npm ci
+```
+
+### Local Development
+
+```
+$ npm run start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ npm run build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.

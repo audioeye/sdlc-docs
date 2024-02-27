@@ -1,13 +1,14 @@
 # Testing with the CLI
 
 ## Pre-requisites
-Visit the [Getting Started](get-started.md) page to learn how to setup the CLI in your project.
+
+Visit the [Getting Started](./get-started) page to learn how to setup the CLI in your project.
 
 ## Scanning
 
 ### A Website
 
-::: tip Escaping the url
+:::tip Escaping the url
 Wrapping the URL with single quotes is an easy way to avoid issues with the shell interpreting special characters.
 :::
 
@@ -15,8 +16,8 @@ Wrapping the URL with single quotes is an easy way to avoid issues with the shel
 npx aetest scan 'https://www.audioeye.com'
 ```
 
-
 ### A Local Document
+
 ```bash
 npx aetest scan < example_inputs/document.html
 ```
@@ -39,12 +40,15 @@ Full Test Results were output to /example/folder/testing-sdk-output.html
 
 ::: END AudioEye SDK CLI :::
 ```
+
 ### Scanning Components
+
 ```bash
 npx aetest scan < example_inputs/component.html -c
 ```
 
 ### Option Flags for Scanning
+
 ```
   -c, --component                Run in component mode (create a document and inject the HTML)
   -p, --print-test-list          Print the list of tests that will be run
@@ -55,8 +59,9 @@ npx aetest scan < example_inputs/component.html -c
   -m, --timeout <seconds>        Set the timeout for DOM rendering in seconds, default is 5 (default: "5")
   -h, --help                     display help for command
 ```
+
 ## HTML Output
 
 Once you've run a scan, the test results will be added to an HTML document at the file path specified in the output. Here is an example result:
 
-![Example table output](/html-output-table.png)
+![Example table output](/img/html-output-table.png)

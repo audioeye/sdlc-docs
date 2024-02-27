@@ -1,4 +1,9 @@
-# Get Started
+# Getting Started
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
 ## Available Packages
 
@@ -14,34 +19,35 @@ NPM version 16 or greater is required to use AudioEye Testing SDK
 
 ## Pre-Requisites
 
-AudioEye is hosting the NPM packages for this SDK in Cloudsmith for secure distribution. In order to download packages, 
+AudioEye is hosting the NPM packages for this SDK in Cloudsmith for secure distribution. In order to download packages,
 you will need a copy of your AudioEye Entitlement Token. This token is available in the
 [AudioEye Customer Portal](https://portal.audioeye.com/).
 
 ### Getting your entitlement token
 
-1. Log in to the [AudioEye Customer Portal](https://portal.audioeye.com/). 
-2. Click on the account menu in the top right and select the *My Account* menu item.
-   <img src="/my-account.png" aria-hidden="true" />
-3. Scroll down to the *Testing SDK Entitlement Token* section.
-4. If not created yet, click the *Generate Entitlement Token* button to create a token for your account.
-   <img src="/generate-entitlement-token.png" aria-hidden="true" />
-5. Once complete click on the *Copy Entitlement Token* button to copy the key to your clipboard.
-   <img src="/copy-entitlement-token.png" aria-hidden="true" />
+1. Log in to the [AudioEye Customer Portal](https://portal.audioeye.com/).
+2. Click on the account menu in the top right and select the _My Account_ menu item.
+   <img src="/img/my-account.png" aria-hidden="true" />
+3. Scroll down to the _Testing SDK Entitlement Token_ section.
+4. If not created yet, click the _Generate Entitlement Token_ button to create a token for your account.
+   <img src="/img/generate-entitlement-token.png" aria-hidden="true" />
+5. Once complete click on the _Copy Entitlement Token_ button to copy the key to your clipboard.
+   <img src="/img/copy-entitlement-token.png" aria-hidden="true" />
 
 This key can now be used to download the AudioEye Testing SDK packages. We will refer to this key as
 `AUDIOEYE_ENTITLEMENT_TOKEN` in the rest of this document.
 
 ### Refreshing your entitlement token
-If you want to replace your entitlement token key with a new one, follow these steps: 
 
-1. Log in to the [AudioEye Customer Portal](https://portal.audioeye.com/). 
-2. Click on the account menu in the top right and select the *My Account* menu item.
-   ![My Account Selection](/my-account.png)
-3. Scroll down to the *Testing SDK Entitlement Token* section.
-4. Click the *Refresh Entitlement Token* button. The new token will appear.
-5. Click on the *Copy Entitlement Token* button to copy the new token key to your clipboard.
-   ![Copy Entitlement Token](/copy-entitlement-token.png) 
+If you want to replace your entitlement token key with a new one, follow these steps:
+
+1. Log in to the [AudioEye Customer Portal](https://portal.audioeye.com/).
+2. Click on the account menu in the top right and select the _My Account_ menu item.
+   ![My Account Selection](/img/my-account.png)
+3. Scroll down to the _Testing SDK Entitlement Token_ section.
+4. Click the _Refresh Entitlement Token_ button. The new token will appear.
+5. Click on the _Copy Entitlement Token_ button to copy the new token key to your clipboard.
+   ![Copy Entitlement Token](/img/copy-entitlement-token.png)
 
 Your existing projects and workflows will need to be manually updated to use the new token. Proceed with the steps described in the **Setting up your `.npmrc** section below.
 
@@ -65,6 +71,7 @@ You can install or update the CLI (as a developer only dependency) using the fol
 ```bash
 npm install -D @audioeye/testing-sdk-cli
 ```
+
 ### Installation in a Docker Container
 
 In order to run our CLI in Docker, you must set up your project to support Puppeteer. This Dockerfile works for ubuntu containers.
@@ -92,17 +99,20 @@ npx aetest [command] [options]
 ```
 
 #### Available Commands
+
 ```
   scan [options] [url]  Perform an accessibility scan on a URL or on the provided raw html on stdin
   describe [rule]       Output available information about the rules in the testing framework and their usage in the testing sdk cli
-  help [command]        display help for command    
+  help [command]        display help for command
 ```
 
 #### Available Options
+
 ```
   -V, --version         output the version number
   -h, --help            display help for command
 ```
+
 ## Jest
 
 ### NPM Installation or Update
@@ -115,8 +125,10 @@ npm install -D @audioeye/testing-sdk-jest
 
 Set up the test matchers in your [Jest configuration file](https://jestjs.io/docs/configuration#setupfilesafterenv-array).
 
-<CodeGroup>
-  <CodeGroupItem title="Javascript" active>
+```mdx-code-block
+<Tabs groupId="jest-configuration">
+<TabItem value="javascript" label="Javascript">
+```
 
 ```javascript
 const config = {
@@ -125,9 +137,10 @@ const config = {
 module.exports = config;
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="Typescript">
+```mdx-code-block
+</TabItem>
+<TabItem value="typescript" label="Typescript">
+```
 
 ```typescript
 import type { Config } from "jest";
@@ -139,15 +152,18 @@ const config: Config = {
 export default config;
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
 
-::: tip Create React App users
+:::tip Create React App users
 If you are using [create-react-app](https://create-react-app.dev/), it may already have a `setupFilesAfterEnv` pointing to `src/setupTests.js`. Instead of modifying `setupFilesAfterEnv`, instead add the following to your `src/setupTests.js` file.
 
 ```javascript
 import "@audioeye/testing-sdk-jest";
 ```
+
 :::
 
 ## Cypress
@@ -158,7 +174,8 @@ import "@audioeye/testing-sdk-jest";
 npm install -D @audioeye/testing-sdk-cypress
 ```
 
-__`cypress-promise` is required when using `@audioeye/testing-sdk-cypress`.__
+**`cypress-promise` is required when using `@audioeye/testing-sdk-cypress`.**
+
 ```bash
 npm install -D cypress-promise
 ```
@@ -168,7 +185,7 @@ Set up the test matchers in your [Cypress support file](https://docs.cypress.io/
 `chai` is globally available in Cypress, so you can use the following code to add accessibility assertions to your tests.
 
 ```javascript
-import { chaiAudioEyeAssertions } from '@audioeye/testing-sdk-cypress';
+import { chaiAudioEyeAssertions } from "@audioeye/testing-sdk-cypress";
 chai.use(chaiAudioEyeAssertions);
 ```
 
