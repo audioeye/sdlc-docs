@@ -57,7 +57,7 @@ described in the **Setting up your `.npmrc** section below.
 In your node package root directory (where `package.json` lives), add or modify the `.npmrc` file with the following
 contents:
 
-```bash
+```sh title=".npmrc"
 @audioeye:registry=https://npm.cloudsmith.io/audioeye-K01/audioeye/
 //npm.cloudsmith.io/audioeye-K01/audioeye/:_authToken=AUDIOEYE_ENTITLEMENT_TOKEN
 ```
@@ -137,7 +137,7 @@ Set up the test matchers in your
 <TabItem value="javascript" label="Javascript">
 ```
 
-```javascript
+```javascript title="jest.config.js"
 const config = {
   setupFilesAfterEnv: ['@audioeye/testing-sdk-jest'],
 };
@@ -149,7 +149,7 @@ module.exports = config;
 <TabItem value="typescript" label="Typescript">
 ```
 
-```typescript
+```typescript title="jest.config.ts"
 import type { Config } from 'jest';
 
 const config: Config = {
@@ -170,7 +170,7 @@ If you are using [create-react-app](https://create-react-app.dev/), it may alrea
 to `src/setupTests.js`. Instead of modifying `setupFilesAfterEnv`, instead add the following to your `src/setupTests.js`
 file.
 
-```javascript
+```javascript title="src/setupTests.js"
 import '@audioeye/testing-sdk-jest';
 ```
 
@@ -184,12 +184,6 @@ import '@audioeye/testing-sdk-jest';
 npm install -D @audioeye/testing-sdk-cypress
 ```
 
-**`cypress-promise` is required when using `@audioeye/testing-sdk-cypress`.**
-
-```bash
-npm install -D cypress-promise
-```
-
 Set up the test matchers in your
 [Cypress support file](https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests#Support-file). In
 earlier versions of Cypress this was `./cypress/support/index.*` and in later versions you can use
@@ -198,7 +192,7 @@ earlier versions of Cypress this was `./cypress/support/index.*` and in later ve
 `chai` is globally available in Cypress, so you can use the following code to add accessibility assertions to your
 tests.
 
-```javascript
+```javascript title="cypress/support/e2e.js"
 import { chaiAudioEyeAssertions } from '@audioeye/testing-sdk-cypress';
 chai.use(chaiAudioEyeAssertions);
 ```
