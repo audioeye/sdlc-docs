@@ -15,32 +15,28 @@ Import [`cypress-promise`](https://www.npmjs.com/package/cypress-promise) into y
 to test, and then use the [available tests](#available-tests) to test for accessibility issues.
 
 ```javascript
-import promisify from 'cypress-promise';
-
 describe('accessibility tests', () => {
-  it('accessibility for the entire page matches our expectation', async () => {
+  it('accessibility for the entire page matches our expectation', () => {
     cy.visit('http://localhost:3000');
 
     // For full page scan that uses the root element, we need to "get" something first otherwise the page won't be settled
     cy.get('[data-cy="login"]').should('contain', 'Join or Login');
 
-    const htmlRootElement = await promisify(cy.get('html:root'));
-
-    await expect(htmlRootElement).to.findAccessibilityIssues();
-    await expect(htmlRootElement).to.findTheseAccessibilityIssues('Img_Name_Missing');
-    await expect(htmlRootElement).to.onlyHaveTheseAccessibilityIssues(
-      'Img_Name_Missing',
-      'Text_Contrast_TooLow',
-      'Html_Possible_Heading',
-    );
+    cy.get('html:root').then((htmlRootElement) => {
+      expect(htmlRootElement).to.findAccessibilityIssues();
+      expect(htmlRootElement).to.findTheseAccessibilityIssues('Img_Name_Missing');
+      expect(htmlRootElement).to.onlyHaveTheseAccessibilityIssues(
+        'Img_Name_Missing',
+        'Text_Contrast_TooLow',
+        'Html_Possible_Heading',
+      );
+    });
   });
 
-  it('accessibility for the login button matches our expectation', async () => {
+  it('accessibility for the login button matches our expectation', () => {
     cy.visit('http://localhost:3000');
 
-    const loginButton = await promisify(cy.get('[data-cy="login"]'));
-
-    await expect(loginButton).to.not.findAccessibilityIssues();
+    cy.get('[data-cy="login"]').then((button) => expect(button).to.not.findAccessibilityIssues());
   });
 });
 ```
@@ -52,18 +48,16 @@ describe('accessibility tests', () => {
 Use `.findAccessibilityIssues` when checking if a component has accessibility issues.
 
 ```javascript
-it('expect to find accessibility issues on the page', async () => {
+it('expect to find accessibility issues on the page', () => {
   cy.visit('http://localhost:3000');
-  const htmlRootElement = await promisify(cy.get('html:root'));
-  await expect(htmlRootElement).to.findAccessibilityIssues();
+  cy.get('html:root').then((htmlRootElement) => expect(htmlRootElement).to.findAccessibilityIssues());
 });
 ```
 
 ```javascript
-it('expect to find no accessibility issues on the page', async () => {
+it('expect to find no accessibility issues on the page', () => {
   cy.visit('http://localhost:3000');
-  const htmlRootElement = await promisify(cy.get('html:root'));
-  await expect(htmlRootElement).to.not.findAccessibilityIssues();
+  cy.get('html:root').then((htmlRootElement) => expect(htmlRootElement).to.not.findAccessibilityIssues());
 });
 ```
 
@@ -73,10 +67,11 @@ Use `.onlyHaveTheseAccessibilityIssues` when checking if a component has exactly
 a comma separated list of expected test names.
 
 ```javascript
-it('expect to find an accessibility issues when no alt-text is passed to component', async () => {
+it('expect to find an accessibility issues when no alt-text is passed to component', () => {
   cy.visit('http://localhost:3000');
-  const companyLogo = await promisify(cy.get('[data-cy="company-logo"]'));
-  await expect(htmlRootElement).to.onlyHaveTheseAccessibilityIssues('Img_Name_Missing');
+  cy.get('[data-cy="company-logo"]').then((htmlRootElement) =>
+    expect(htmlRootElement).to.onlyHaveTheseAccessibilityIssues('Img_Name_Missing'),
+  );
 });
 ```
 
@@ -86,17 +81,18 @@ Use `.findTheseAccessibilityIssues` when checking if a component's accessibility
 Pass a comma separated list of expected test names.
 
 ```javascript
-it('expect to find an alt-text accessibility issue', async () => {
+it('expect to find an alt-text accessibility issue', () => {
   cy.visit('http://localhost:3000');
-  const companyLogo = await promisify(cy.get('[data-cy="company-logo"]'));
-  await expect(htmlRootElement).to.findTheseAccessibilityIssues('Img_Name_Missing');
+  cy.get('[data-cy="company-logo"]').then((htmlRootElement) =>
+    expect(htmlRootElement).to.findTheseAccessibilityIssues('Img_Name_Missing'),
+  );
 });
 ```
 
 ```javascript
-it('expect to not find an alt-text accessibility issue', async () => {
+it('expect to not find an alt-text accessibility issue', () => {
   cy.visit('http://localhost:3000');
-  const descriptiveImage = await promisify(cy.get('[data-cy="descriptive-image"]'));
-  await expect(htmlRootElement).to.not.findTheseAccessibilityIssues('Img_Name_Missing');
+  const descriptiveImage = await promisify(cy.get(''));
+  cy.get('[data-cy="descriptive-image"]').then((htmlRootElement) => expect(htmlRootElement).to.not.findTheseAccessibilityIssues('Img_Name_Missing'));
 });
 ```

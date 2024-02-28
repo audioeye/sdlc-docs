@@ -25,8 +25,8 @@ const sidebars = {
     'cypress',
     'about_our_rules',
     'how-our-tests-work',
-    'release-notes',
     'troubleshooting',
+    'release-notes',
   ],
 };
 
