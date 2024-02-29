@@ -197,6 +197,19 @@ import { chaiAudioEyeAssertions } from '@audioeye/testing-sdk-cypress';
 chai.use(chaiAudioEyeAssertions);
 ```
 
+### Typescript Support
+
+If you are using Typescript, you will need to add the following to your `cypress/tsconfig.json` file to allow typescript
+to recognize the new assertions added by the `chaiAudioEyeAssertions` function.
+
+```json title="cypress/tsconfig.json"
+{
+  "compilerOptions": {
+    "types": [..., "@audioeye/testing-sdk-cypress"]
+  }
+}
+```
+
 ## Software Development Lifecycle (SDLC)
 
 ### GitHub Actions (example)
