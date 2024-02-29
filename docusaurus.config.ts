@@ -1,4 +1,4 @@
-import type {Config} from '@docusaurus/types';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { themes as prismThemes } from 'prism-react-renderer';
 import lunrSearchPlugin from 'docusaurus-lunr-search';
@@ -33,7 +33,7 @@ const config: Config = {
   presets: [
     [
       'classic',
-      ({
+      {
         docs: {
           // Serve the docs at the site's root
           routeBasePath: '/',
@@ -44,79 +44,78 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      }) satisfies Preset.Options,
+      } satisfies Preset.Options,
     ],
   ],
 
   plugins: [[lunrSearchPlugin, { languages: ['en'] }]],
 
-  themeConfig:
-    ({
-      image: 'img/docusaurus-social-card.jpg',
-      navbar: {
-        title: 'AudioEye Accessibility Testing SDK',
-        logo: {
-          alt: 'The AudioEye Company Logo. The logo is a simple design consisting of a purple circle with a white square in the center.',
-          src: 'img/audioeye_logo.svg',
+  themeConfig: {
+    image: 'img/docusaurus-social-card.jpg',
+    navbar: {
+      title: 'AudioEye Accessibility Testing SDK',
+      logo: {
+        alt: 'The AudioEye Company Logo. The logo is a simple design consisting of a purple circle with a white square in the center.',
+        src: 'img/audioeye_logo.svg',
+      },
+      items: [
+        {
+          href: 'https://www.audioeye.com/',
+          label: 'AudioEye',
+          position: 'right',
         },
-        items: [
-          {
-            href: 'https://www.audioeye.com/',
-            label: 'AudioEye',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Resources',
-            items: [
-              {
-                label: 'Help Center',
-                href: 'https://help.audioeye.com/',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'LinkedIn',
-                href: 'https://www.linkedin.com/company/audioeye-inc/',
-              },
-              {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/audioeyeinc',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/audioeyeinc',
-              },
-              {
-                label: 'Instagram',
-                href: 'https://www.instagram.com/audioeyeinc/',
-              },
-              {
-                label: 'Youtube',
-                href: 'https://www.youtube.com/c/AudioEye',
-              },
-              {
-                label: 'Medium',
-                href: 'https://audioeye.medium.com/',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright ©${new Date().getFullYear()} AudioEye, Inc. All rights reserved. AUDIOEYE is a U.S. registered trademark of AudioEye, Inc.`,
-      },
-      prism: {
-        additionalLanguages: ['bash', 'docker', 'javascript', 'typescript'],
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
-      },
-    }) satisfies Preset.ThemeConfig,
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Resources',
+          items: [
+            {
+              label: 'Help Center',
+              href: 'https://help.audioeye.com/',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/audioeye-inc/',
+            },
+            {
+              label: 'Facebook',
+              href: 'https://www.facebook.com/audioeyeinc',
+            },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/audioeyeinc',
+            },
+            {
+              label: 'Instagram',
+              href: 'https://www.instagram.com/audioeyeinc/',
+            },
+            {
+              label: 'Youtube',
+              href: 'https://www.youtube.com/c/AudioEye',
+            },
+            {
+              label: 'Medium',
+              href: 'https://audioeye.medium.com/',
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright ©${new Date().getFullYear()} AudioEye, Inc. All rights reserved. AUDIOEYE is a U.S. registered trademark of AudioEye, Inc.`,
+    },
+    prism: {
+      additionalLanguages: ['bash', 'docker', 'javascript', 'json', 'typescript'],
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
+  } satisfies Preset.ThemeConfig,
 };
 
 export default config;
