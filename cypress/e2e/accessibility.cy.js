@@ -31,7 +31,6 @@ describe('accessibility tests', () => {
         'FormField_Name_Missing',
         'Html_Name_Redundant',
         'Html_Possible_Heading',
-        'Img_Name_Missing',
         'Link_Name_Redundant',
         'Link_Name_WeakName',
         'Svg_Name_Missing',
