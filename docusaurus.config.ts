@@ -48,6 +48,13 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: '/js/audioeye.js',
+      async: false,
+    },
+  ],
+
   plugins: [[lunrSearchPlugin, { languages: ['en'] }]],
 
   themeConfig: {
