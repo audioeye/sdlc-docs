@@ -1,5 +1,5 @@
 describe('accessibility tests', () => {
-  it('test the different docs for accessibility issues', () => {
+  it('test the landing page for accessibility issues', () => {
     cy.visit('http://localhost:3000');
 
     // For full page scan that uses the root element, we need to "get" something first otherwise the page won't be settled
@@ -8,6 +8,8 @@ describe('accessibility tests', () => {
     cy.title().should('include', 'Introduction');
 
     cy.get('html:root').then((element) => {
+      expect(element).not.to.findTheseAccessibilityIssues('Img_Name_Missing');
+
       expect(element).to.onlyHaveTheseAccessibilityIssues(
         'Html_Name_Redundant',
         'BadTag_Emphasis_Detect',
@@ -18,24 +20,29 @@ describe('accessibility tests', () => {
         'Html_Possible_Heading',
       );
     });
+  });
 
-    cy.get('ul.theme-doc-sidebar-menu').should('exist').find('a[href*="get-started"]').click();
+  [
+    { page: 'get-started', title: 'Getting Started' },
+    { page: 'cli', title: 'Testing with the CLI' },
+    { page: 'jest', title: 'Testing With Jest' },
+    { page: 'cypress', title: 'Testing With Cypress' },
+    { page: 'about_our_rules', title: 'About Our Rules' },
+    { page: 'how-our-tests-work', title: 'Issue Detail Output' },
+    { page: 'troubleshooting', title: 'Troubleshooting' },
+    { page: 'release-notes', title: 'Release Notes' },
+  ].forEach(({ page, title }) => {
+    it(`test the ${page} page for accessibility issues`, () => {
+      cy.visit(`http://localhost:3000/${page}`);
+      cy.title().should('include', title);
 
-    cy.title().should('include', 'Getting Started');
+      // For full page scan that uses the root element, we need to "get" something first otherwise the page won't be settled
+      cy.get('[id="__docusaurus_skipToContent_fallback"]').should('exist');
 
-    cy.get('html:root').then((element) => {
-      expect(element).to.onlyHaveTheseAccessibilityIssues(
-        'Aria_Role_AttributeRequirement_Missing',
-        'BadTag_Emphasis_Detect',
-        'BadTag_Presentational_Detect',
-        'FormField_Name_Missing',
-        'Html_Name_Redundant',
-        'Html_Possible_Heading',
-        'Link_Name_Redundant',
-        'Link_Name_WeakName',
-        'Svg_Name_Missing',
-        'Text_Contrast_TooLow',
-      );
+      cy.get('html:root').then((element) => {
+        expect(element).to.findAccessibilityIssues();
+        expect(element).not.to.findTheseAccessibilityIssues('Img_Name_Missing');
+      });
     });
   });
 });
