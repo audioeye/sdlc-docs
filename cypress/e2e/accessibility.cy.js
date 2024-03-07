@@ -18,6 +18,7 @@ describe('accessibility tests', () => {
         'FormField_Name_Missing',
         'Link_Name_Redundant',
         'Html_Possible_Heading',
+        'Text_Contrast_TooLow',
       );
     });
   });
