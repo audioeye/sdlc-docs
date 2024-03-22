@@ -23,6 +23,7 @@ const sidebars = {
     'cli',
     'jest',
     'cypress',
+    'writing-custom-tests',
     'about_our_rules',
     'how-our-tests-work',
     'troubleshooting',

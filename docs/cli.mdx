@@ -53,14 +53,16 @@ npx aetest scan < example_inputs/component.html -c
 ### Option Flags for Scanning
 
 ```
-  -c, --component                Run in component mode (create a document and inject the HTML)
-  -p, --print-test-list          Print the list of tests that will be run
-  -d, --debug                    Internal Use only (Don't build off of this!)
-  -t, --output-type <file_type>  Define the file type of the output (html, json or csv) (default: "html")
-  -o, --output <filename>        Define the file path for test results output, default is ./aetest_results.<file_type>
-  -s, --stdout                   Output full results to stdout as well as a file, this will replace the summary output normally shown on stdout
-  -m, --timeout <seconds>        Set the timeout for DOM rendering in seconds, default is 5 (default: "5")
-  -h, --help                     display help for command
+  -c, --component                             Run in component mode (create a document and inject the HTML)
+  -p, --print-test-list                       Print the list of tests that will be run
+  -d, --debug                                 Internal Use only (Don't build off of this!)
+  -f, --format <file_type>                    Define the file type of the output (html, json or csv) (default: "html")
+  -o, --output <filename>                     Define the file path for test results output, default is ./aetest_results.<file_type>
+  -s, --stdout                                Output full results to stdout as well as a file, this will replace the summary output normally shown on stdout
+  -t, --timeout <seconds>                     Set the timeout for DOM rendering in seconds, default is 5 (default: "5")
+  -v, --viewport-dimensions <width>x<height>  Set the viewport dimensions for the browser (width and height separated by "x")
+  -m, --mobile                                Set the viewport to a mobile device. Customize dimensions with --viewport-dimensions (default is 390x844).
+  -h, --help                                  display help for command
 ```
 
 ## HTML Output
@@ -68,4 +70,4 @@ npx aetest scan < example_inputs/component.html -c
 Once you've run a scan, the test results will be added to an HTML document at the file path specified in the output.
 Here is an example result:
 
-![Screenshot of a Testing SDK CLI report highlighting issues found on an example webpage. A table provides detailed information on issue type, WCAG level, WCAG number, and additional details.](/img/html-output-table.png)
+![Screenshot of an Accessibility Testing SDK CLI report highlighting issues found on an example webpage. A table provides detailed information on issue type, WCAG level, WCAG number, and additional details.](/img/html-output-table.png)
