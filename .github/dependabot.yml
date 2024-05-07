@@ -1,0 +1,36 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '01:00'
+      timezone: 'America/Los_Angeles'
+    open-pull-requests-limit: 1
+    # Always increase the version requirement to match the new version.
+    versioning-strategy: increase
+    labels:
+      - 'dependencies'
+      - 'merge-queue'
+    ignore:
+      # Ignore all major rule version updates
+      - dependency-name: '@audioeye/a11y-rules'
+        update-types: ['version-update:semver-major']
+    groups:
+      audioeye-dependencies:
+        applies-to: version-updates
+        patterns:
+          - '@audioeye/*'
+      minor-and-patch-updates:
+        applies-to: version-updates
+        exclude-patterns:
+          - '@audioeye/*'
+        update-types:
+          - 'patch'
+          - 'minor'
+      major-updates:
+        applies-to: version-updates
+        exclude-patterns:
+          - '@audioeye/*'
+        update-types:
+          - 'major'
