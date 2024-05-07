@@ -18,26 +18,27 @@
     "test:e2e:ci": "start-server-and-test serve http://localhost:3000 test:e2e"
   },
   "dependencies": {
-    "@docusaurus/core": "3.1.1",
-    "@docusaurus/preset-classic": "3.1.1",
+    "@docusaurus/core": "3.3.2",
+    "@docusaurus/preset-classic": "3.3.2",
     "@mdx-js/react": "^3.0.1",
-    "clsx": "^2.1.0",
+    "clsx": "^2.1.1",
     "docusaurus-lunr-search": "^3.3.2",
     "prism-react-renderer": "^2.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@audioeye/testing-sdk-cypress": "^1.2.1",
-    "@docusaurus/module-type-aliases": "^3.1.1",
-    "@docusaurus/tsconfig": "^3.1.1",
-    "@docusaurus/types": "^3.1.1",
-    "cypress": "^13.7.1",
+    "@audioeye/testing-sdk-cli": "^1.2.2",
+    "@audioeye/testing-sdk-cypress": "^1.2.2",
+    "@docusaurus/module-type-aliases": "^3.3.2",
+    "@docusaurus/tsconfig": "^3.3.2",
+    "@docusaurus/types": "^3.3.2",
+    "cypress": "^13.8.1",
     "cypress-promise": "^1.1.0",
-    "npm-check-updates": "^16.14.18",
+    "npm-check-updates": "^16.14.20",
     "prettier": "^3.2.5",
     "start-server-and-test": "^2.0.3",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "browserslist": {
     "production": [

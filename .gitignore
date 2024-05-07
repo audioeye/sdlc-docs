@@ -3,6 +3,7 @@
 
 # Production
 /build
+/aetest_output.html
 
 # Generated files
 .docusaurus
