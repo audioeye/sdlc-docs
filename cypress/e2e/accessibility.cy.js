@@ -10,16 +10,7 @@ describe('accessibility tests', () => {
     cy.get('html:root').then((element) => {
       expect(element).not.to.findTheseAccessibilityIssues('Img_Name_Missing');
 
-      expect(element).to.onlyHaveTheseAccessibilityIssues(
-        'Html_Name_Redundant',
-        'BadTag_Emphasis_Detect',
-        'BadTag_Presentational_Detect',
-        'Svg_Name_Missing',
-        'FormField_Name_Missing',
-        'Link_Name_Redundant',
-        'Html_Possible_Heading',
-        'Text_Contrast_TooLow',
-      );
+      expect(element).to.onlyHaveTheseAccessibilityIssues('BadTag_Emphasis_Detect', 'Svg_Name_Missing');
     });
   });
 
