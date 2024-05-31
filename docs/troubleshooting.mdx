@@ -19,6 +19,6 @@ Refer to the [How Rules Work in Different Testing Scenarios](./about_our_rules) 
 
 ### Testing production versus pre-prod HTML
 
-The Testing SDk was not designed to be run against live production URL. Try downloading the HTML for the page you want
-to test to a file, then run the CLI against the local file. If you are trying to test pages that live behind an
-authentication flow, we recommend using Cypress.
+The Testing SDK was designed to be used in development environments. If you want to use it to test production sites, you
+can download the HTML for the page you want to test then run the CLI against the local file, or you can test directly
+against the live site. If you are trying to test pages that require an authentication flow, we recommend using Cypress.
