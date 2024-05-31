@@ -10,3 +10,15 @@ Refer to the [Pre-Requisites](./get-started#pre-requisites) section to verify yo
 
 Visit the [Cloudsmith status page](https://status.cloudsmith.io/) under _Package Downloads (CDN)_ to see if there are
 any known issues.
+
+## Rules Not Running or Issues Missed
+
+### Check what rules work
+
+Refer to the [How Rules Work in Different Testing Scenarios](./about_our_rules) page.
+
+### Testing production versus pre-prod HTML
+
+The Testing SDK was designed to be used in development environments. If you want to use it to test production sites, you
+can download the HTML for the page you want to test then run the CLI against the local file, or you can test directly
+against the live site. If you are trying to test pages that require an authentication flow, we recommend using Cypress.
