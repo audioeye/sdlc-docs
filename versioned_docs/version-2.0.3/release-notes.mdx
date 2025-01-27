@@ -1,0 +1,35 @@
+# Release Notes
+
+These are the currently supported versions of the AudioEye Accessibility Testing SDK.
+
+## Version 2.0.3
+
+- Updated package dependencies to address security vulnerabilities.
+
+## Version 2.0.2
+
+- Fix CLI for Windows users
+- Improved CSS selectors.
+
+## Version 2.0.0
+
+- Updated to the latest version of the AudioEye RuleSet.
+- Removed tests that need a real browser and were causing false positives.
+
+## Version 1.2.3
+
+- Improved accessibility of the html output.
+- Added "Must Be Fixed At Source" info to the html, json, and csv output files.
+
+## Version 1.2.2
+
+- Improved the `npm` build step to include transitive types in the exported type definition files.
+- Fixed a bug with how we handle jQuery selected elements (impacts Cypress).
+- Added new command line options to control the viewport size and turn on mobile emulation
+- Changed some of the command line options to be more consistent
+- Added documentation for calling the test function directly (not just through the CLI or Jest/Cypress)
+
+## Version 1.1.3
+
+- Removed async/await from the [Jest](./jest) and [Cypress](./cypress) assertions
+- Additional rule updates

@@ -1,0 +1,79 @@
+# Issue Detail Output
+
+There are three formats you can use to understand what issues have been detected in your code: An HTML output file that
+displays information in a formatted table, a JSON output that can be converted into other spreadsheet file types, and a
+CSV output format that can be uploaded into project management tools.
+
+## HTML Output
+
+```bash
+% npx aetest scan < document.html
+::: START AudioEye SDK CLI :::
+
+Scanning HTML from STDIN
+
+Found 7 accessibility issues
+   Html_SkipLink_Missing - count: 1
+   Img_Name_Missing - count: 6
+
+Full Test Results were output to testing-sdk/aetest_output.html
+
+::: END AudioEye SDK CLI :::
+```
+
+You can easily find details about each of these failure details in the HTML output file. Here is an example result:
+
+![Screenshot of an Accessibility Testing SDK CLI report highlighting issues found on an example webpage. A table provides detailed information on issue type, WCAG level, WCAG number, and additional details.](/img/html-output-table.png)
+
+When a failure is returned, we will provide you the following information for all issues:
+
+- **Number** – A number identifying this issue in the report
+- **Rule Name** – The name of the rule that was run.
+- **Must be Fixed at Source** - If true, the issue can only be fixed in the source code. If false, AudioEye automated
+  remediations could be used to fix.
+- **WCAG Level** - The WCAG conformance level for the issue detected
+- **WCAG success criterion (number + name)** – The corresponding WCAG criteria for each rule.
+
+In addition by clicking **View Details** on an issue you will have access to the following additional information:
+
+- **Rule Code** – The rule code indicates the specific issue that was discovered.
+- **Element Location** – The HTML element for which this issue occurred.
+- **Description** – A description of what the rule checks for.
+- **How to fix** - Explanation of how to fix the issue.
+
+## JSON Output
+
+If you prefer to work with to work with JSON, you can use the `-t` flag with `json` to output the results in JSON
+format.
+
+```bash
+% npx aetest scan -c -t json < component.html
+::: START AudioEye SDK CLI :::
+
+Scanning HTML from STDIN
+
+Found 3 accessibility issues
+   Img_Name_Missing - count: 3
+
+JSON file saved to testing-sdk/aetest_output.json
+
+::: END AudioEye SDK CLI :::
+```
+
+## CSV Output
+
+If you prefer to work with to work with CSV, you can use the `-t` flag with `csv` to output the results in CSV format.
+
+```bash
+% npx aetest scan -c -t csv < component.html
+::: START AudioEye SDK CLI :::
+
+Scanning HTML from STDIN
+
+Found 3 accessibility issues
+   Img_Name_Missing - count: 3
+
+JSON file saved to testing-sdk/aetest_output.csv
+
+::: END AudioEye SDK CLI :::
+```

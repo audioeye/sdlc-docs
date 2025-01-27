@@ -1,0 +1,14 @@
+{
+  "tutorialSidebar": [
+    "introduction",
+    "get-started",
+    "cli",
+    "jest",
+    "cypress",
+    "writing-custom-tests",
+    "about_our_rules",
+    "how-our-tests-work",
+    "troubleshooting",
+    "release-notes"
+  ]
+}

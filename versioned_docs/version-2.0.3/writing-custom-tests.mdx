@@ -1,0 +1,83 @@
+# Writing Custom Accessibility Tests
+
+The AudioEye Accessibility Testing SDK allows you to write custom tests using the `@audioeye/testing-sdk-core` package.
+This package provides the core functionality used for all of our testing frameworks. If specific framework coverage is
+not provided, you can use this package to write your own tests.
+
+## Pre-requisites
+
+Visit the [Getting Started](../get-started#core-package) guide to install the SDK and set up your project.
+
+## Usage
+
+Use the `findIssues` function to run your custom tests. This function can be imported from
+`@audioeye/testing-sdk-core/testingTools`. The return type of this function is a `Result` provided by the
+[`ts-results`](https://www.npmjs.com/package/ts-results) package.
+
+### Importing the function
+
+```typescript
+import { findIssues } from '@audioeye/testing-sdk-core/testingTools';
+```
+
+### `findIssues` type signature
+
+```typescript
+import { Result } from 'ts-results';
+import type { RenderResult } from '@testing-library/react';
+
+export declare type EvaluateRulesInputType =
+  | string
+  | RenderResult
+  | HTMLElement
+  | DocumentFragment
+  | JQuery<HTMLElement>;
+
+declare type TestingSdkAllResultType = {
+  ruleResults: TestingSdkRuleResultType[];
+  exitCode: number;
+  summaryResults: string;
+  formattedResults: string;
+};
+
+declare type TestingSdkRuleResultType = {
+  ruleCode: string;
+  ruleMetadata: RuleMetaOutput | undefined;
+  result: FailResult;
+  source: string;
+};
+
+declare type RuleMetaOutput = {
+  code: string;
+  fullName: string;
+  description: string;
+  wcagSuccessCriteriaNumber: string;
+  wcagSuccessCriteriaName: string;
+  wcagSuccessCriteriaLevelCode: string;
+  sourceFixGuidance?: string;
+};
+
+export declare type FailResult = {
+  result: 'fail';
+};
+
+export declare const findIssues: (input: EvaluateRulesInputType) => Result<TestingSdkAllResultType, string>;
+```
+
+### Example
+
+```typescript
+import { findIssues } from '@audioeye/testing-sdk-core/testingTools';
+
+// `findIssues` takes a single argument of type `EvaluateRulesInputType`
+// This can be a string, a `RenderResult` object from `@testing-library/react`, an `HTMLElement`, a `DocumentFragment`, or a `JQuery<HTMLElement>`
+const result = findIssues(document.body);
+
+if (!result.ok) {
+  throw new Error(result.val);
+}
+
+const { ruleResults, exitCode, summaryResults, formattedResults } = result.val;
+
+// Handle the results
+```
